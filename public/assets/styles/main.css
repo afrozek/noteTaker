@@ -1,0 +1,197 @@
+html{
+	height: 100%;
+}
+
+body{
+	!font-family: "jura","Helvetica","Arial","Sans-Serif";
+	!background: url('../images/mainBg.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-top: 50px;
+	height: 100%;
+}
+
+/*helpers*/
+
+.clearPadding{
+	padding: 0;
+	overflow: auto;
+}
+
+.clearMargin{
+	margin: 0;
+}
+
+.centerText{
+	text-align: center;
+} 
+
+.centerDiv{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fullHeight{
+	height: 100%;
+	/* overflow: auto; */
+}
+
+.fullWidth{
+	width: 100%;
+}
+
+.floatLeft{
+	float: left;
+}
+
+.floatRight{
+	float: right;
+}
+
+
+.outline{
+	outline: 1px solid white !important;
+}
+
+.centerText{
+	text-align: center;
+}
+/*colors*/
+
+.softBlue{
+	background: #49AAEF;
+}
+
+.blackGradient{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c4c4c+0,474747+25,2c2c2c+72 */
+	background: rgb(76,76,76); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(76,76,76,1) 0%, rgba(71,71,71,1) 25%, rgba(44,44,44,1) 72%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(71,71,71,1) 25%,rgba(44,44,44,1) 72%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(76,76,76,1) 0%,rgba(71,71,71,1) 25%,rgba(44,44,44,1) 72%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#2c2c2c',GradientType=0 ); /* IE6-9 */
+
+}
+
+.silverGradient{
+	background: white; /*fallback*/
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d8d8d8+100 */
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(216,216,216,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(216,216,216,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(216,216,216,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d8d8d8',GradientType=0 ); /* IE6-9 */
+
+}
+
+/*notes*/
+.notes{
+	background: #CECECE;
+}
+
+.notes .header{
+	background: #FFC800;
+	box-shadow: 0px 0px 8px -3px;
+
+}
+
+.notes .title{
+	font-weight: 100;
+	letter-spacing: 2px;
+	padding: 20px;
+}
+
+.notesContainer{
+
+}
+
+.noteContainer{
+	padding: 10px;
+	position: relative;
+	background: none;
+	border: none;
+}
+
+.note{
+	background: white;
+	padding: 10px;
+	border-radius: 2px;
+	box-shadow: 0px 0px 8px -3px;
+}
+
+.noteTitle{
+	font-weight: 200;
+	margin: 2px;
+	/* background: #76FFB9; */
+	padding: 5px 10px 5px 10px;
+	/* border-radius: 2px; */
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.noteBody{
+
+}
+
+ul.itemsList{
+	padding: 0px;
+	margin: 0;
+	margin-left: 2px;}
+
+
+li.noteItem{
+	list-style: none;
+	padding: 5px;
+	border-radius: 2px;
+	background: #EBEBEB;
+	margin: 5px 2px 5px 0px;
+}
+
+
+
+
+/*transitions*/
+.ui-view-container {
+  position: relative;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform:scale3d(0.5, 0.5, 0.5);
+  -moz-transform:scale3d(0.5, 0.5, 0.5);
+  transform:scale3d(0.5, 0.5, 0.5);
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform:scale3d(1, 1, 1);
+  -moz-transform:scale3d(1, 1, 1);
+  transform:scale3d(1, 1, 1);
+}
+
+[ui-view].ng-leave {
+  opacity: 1; 
+  -webkit-transform:translate3d(0, 0, 0);
+  -moz-transform:translate3d(0, 0, 0);
+  transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+  -webkit-transform:translate3d(100px, 0, 0);
+  -moz-transform:translate3d(100px, 0, 0);
+  transform:translate3d(100px, 0, 0);
+}
+
+/*content*/
+
