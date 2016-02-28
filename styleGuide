@@ -1,0 +1,26 @@
+# taskboard
+a simple task manager
+
+Style Guide : John Papa
+Casing: Camel Case
+
+
+Each component gets own folder
+
+
+When writing functions, no space after function name, but space after parenthesis, ie
+
+  function sample() {
+    ...
+  }
+  
+  
+Naming : 
+
+  module: sample.js
+  
+  service: sample.service.js   //sampleService
+  
+  controller: sample.controller.js //sampleCtrl
+  
+  
