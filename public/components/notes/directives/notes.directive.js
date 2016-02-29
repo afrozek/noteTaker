@@ -86,6 +86,7 @@ function noteCard() {
 			
 
 			element.sortable({
+				connectWith: ".connectedSortable",
 		       //placeholder: "ui-state-highlight",
 		        start: function(event, ui) {
 		            var start_pos = ui.item.index();
@@ -104,7 +105,12 @@ function noteCard() {
 		           //console.log(scope.notes)
 		           
 		           
+		        }, //end update
+		        receive: function(event, ui){
+		        	//console.log(ui.item.index())
+		        	console.log(attrs.noteindex)
 		        }
+
 		    }); // end sortable
 
 		  

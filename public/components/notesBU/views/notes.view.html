@@ -1,0 +1,24 @@
+
+  <div class="container-fluid  fullHeight clearPadding notes">
+  	
+  	<div class="header">
+  		<h1 class="title clearMargin centerText">Notes</h1>
+  	</div>
+
+
+
+  	<div class="notesContainer container" >
+       
+      <p>{{notes.notes}}</p>
+      <p><button ng-click="notes.alertList()"> get list</button></p>
+    
+      <note-cards id="notecards" notes="notes.notes" dragdata="notes.dragdata">
+      </note-cards>
+
+    
+
+  	</div> <!-- end notes container
+
+  </div>
+
+
