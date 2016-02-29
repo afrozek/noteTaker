@@ -89,10 +89,14 @@ function noteCard() {
 				connectWith: ".connectedSortable",
 		       //placeholder: "ui-state-highlight",
 		        start: function(event, ui) {
+		        	console.log("START START START START START")
 		            var start_pos = ui.item.index();
 		            ui.item.data('start_pos', start_pos);
 		        },
 		        update: function(event, ui) {
+	        	if (!ui.sender) {
+			        //your code here
+			        console.log("UPDATE UPDATE UPDATE UPDATE UPDATE")
 		            var start_pos = ui.item.data('start_pos');
 		            var end_pos = ui.item.index();
 		            //console.log(start_pos + ' - ' + end_pos);
@@ -103,10 +107,11 @@ function noteCard() {
 		           scope.$apply();
 
 		           //console.log(scope.notes)
-		           
+			    }   
 		           
 		        }, //end update
 		        receive: function(event, ui){
+		        	console.log("RECEIVE RECEIVE RECEIVE RECEIVE RECEIVE")
 		        	//console.log(ui.item.index())
 		        	console.log(attrs.noteindex)
 		        }
