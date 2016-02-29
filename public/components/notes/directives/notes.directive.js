@@ -92,6 +92,9 @@ function noteCard() {
 		        	console.log("START START START START START")
 		            var start_pos = ui.item.index();
 		            ui.item.data('start_pos', start_pos);
+		            //console.log("noteIndex: " + attrs.noteindex)
+		            ui.item.data('noteOriginIndex',attrs.noteindex )
+
 		        },
 		        update: function(event, ui) {
 	        	if (!ui.sender) {
@@ -112,8 +115,9 @@ function noteCard() {
 		        }, //end update
 		        receive: function(event, ui){
 		        	console.log("RECEIVE RECEIVE RECEIVE RECEIVE RECEIVE")
-		        	//console.log(ui.item.index())
-		        	console.log(attrs.noteindex)
+		        	var noteOriginIndex = ui.item.data('noteOriginIndex');
+		        	var noteDestinationIndex = attrs.noteindex;
+		        	console.log("FROM: " + noteOriginIndex + " | TO: " + noteDestinationIndex)
 		        }
 
 		    }); // end sortable
