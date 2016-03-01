@@ -11,6 +11,8 @@ body{
 	background-size: cover;
 	padding-top: 50px;
 	height: 100%;
+		background: #CECECE;
+
 }
 
 /*helpers*/
@@ -87,7 +89,7 @@ body{
 
 /*notes*/
 .notes{
-	background: #CECECE;
+	//background: #CECECE;
 }
 
 .notes .header{
