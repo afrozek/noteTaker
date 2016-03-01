@@ -17,7 +17,7 @@ body{
 
 .clearPadding{
 	padding: 0;
-	overflow: auto;
+	!overflow: auto;
 }
 
 .clearMargin{

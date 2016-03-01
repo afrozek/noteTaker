@@ -1,4 +1,4 @@
- <div class="ui-state-default noteContainer col-md-3 " ng-repeat="note in notes" >
+ <div class="ui-state-default noteContainer col-md-3 " ng-repeat="note in notes " >
         
         <div class="note ">
           <h3 class="noteTitle">
@@ -6,7 +6,7 @@
           </h3>
           <div class="noteBody">
             
-            <note-card note="note" noteindex="{{$index}}">
+            <note-card note="note" notes="notes" noteindex="{{$index}}">
             </note-card>
  
           </div>

@@ -112,30 +112,6 @@
                     createDate: "1/1/2016",
                     lastModified: "1/2/2016",
                     sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "7",
-                    items: [ "laundry", "apply jobs", "gym","bose headphones", "2016 honda grill", "solid state hard drive"  ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "8",
-                    items: [ "html5 drag and drop", "socket.io", "nodejs" ],
-                    createDate: "2/1/2016",
-                    lastModified: "2/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "9",
-                    items: [ "bose headphones", "2016 honda grill", "solid state hard drive","html5 drag and drop", "socket.io", "nodejs"  ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
                 }
             ] //end notes array
 

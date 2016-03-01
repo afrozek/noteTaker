@@ -5,9 +5,9 @@
 		.module('notes')
 		.controller('notesCtrl', notesCtrl)
 
-	notesCtrl.$inject = ['notesService']
+	notesCtrl.$inject = ['notesService','$scope']
 
-	function notesCtrl(notesService) {
+	function notesCtrl(notesService,$scope) {
 
 		console.log("notes ctrl");
 
@@ -17,6 +17,19 @@
 
 	    vm.notes = notesService.getNotes();
 	    //console.log(vm.notes[0].items[0])
+
+	    vm.getNotesList = function(){
+	    	
+	    	//$scope.$apply();
+	    	console.log("from controller")
+	    	console.log($scope.notes)
+	    	
+	    }
+
+	    vm.refreshBoard = function(){
+	    	//$scope.apply();
+	    	console.log("REFRESHING.............")
+	    }
 
 
 	    vm.dragstart = function () {
