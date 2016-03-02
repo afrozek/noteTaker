@@ -51,6 +51,9 @@ app.use(express.static(__dirname + '/public'));
 var usersApi = require('./app/components/users/usersApi')(app,express);
 app.use('/api/users',usersApi);
 
+var notesApi = require('./app/components/notes/notesApi')(app,express);
+app.use('/api/notes',notesApi);
+
 //CATCHALL : sends all routes not defined to front end
 //MUST BE REGISTERED AFTER API ROUTES ABOVE^^
 app.get('/',function(req,res){
