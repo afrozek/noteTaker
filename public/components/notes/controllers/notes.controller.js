@@ -5,9 +5,9 @@
 		.module('notes')
 		.controller('notesCtrl', notesCtrl)
 
-	notesCtrl.$inject = ['notesService','$scope']
+	notesCtrl.$inject = ['notesService','$scope','$http']
 
-	function notesCtrl(notesService,$scope) {
+	function notesCtrl(notesService,$scope, $http) {
 
 		console.log("notes ctrl");
 
@@ -15,7 +15,16 @@
 		
 	    var vm = this;
 
-	    vm.notes = notesService.getNotes();
+	   // vm.notes = notesService.getNotes();
+	   vm.notes = notesService.getNotes().then(function(res){
+               vm.notes = res.data.notes.notes
+            })
+
+	   vm.saveNotes = function(){
+	   	notesService.saveNotes(vm.notes).then(function(res){
+               console.log(res)
+            })
+	   }
 	    //console.log(vm.notes[0].items[0])
 
 	    vm.getNotesList = function(){

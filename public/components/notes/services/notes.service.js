@@ -5,13 +5,14 @@
     	.module('notes')
     	.factory('notesService', notesService);
 
-    notesService.$inject = []
+    notesService.$inject = ['$http']
 
-    function notesService() {
+    function notesService($http) {
     	var service = {
 
             getNote: getNote,
-            getNotes: getNotes
+            getNotes: getNotes,
+            saveNotes: saveNotes
 
 
     	};
@@ -39,6 +40,11 @@
 
         // gets all notes
         function getNotes () {
+
+        return $http.post('http://localhost:3000/api/notes/getNotes',{email:"moiz@gmail.com"})
+                 
+                
+           
             
             var notes = [
                 {
@@ -115,7 +121,11 @@
                 }
             ] //end notes array
 
-            return notes
+            //return notes
+        } //end get notes
+
+        function saveNotes(notes) {
+            return $http.post('http://localhost:3000/api/notes/updateNotes',{email:"moiz@gmail.com",notes: notes})
         }
 
 

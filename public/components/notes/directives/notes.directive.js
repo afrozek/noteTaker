@@ -23,14 +23,6 @@ function noteCards() {
 				console.log(note)
 			}
 
-			scope.$watch('notes', function() {
-
-					//scope.notes = " ";
-        // all the code here...
-
-
-    		 });
-			//scope.$watch();
 
 			element.sortable({
 		       // placeholder: "ui-state-highlight",
@@ -61,6 +53,7 @@ function noteCards() {
 
 		},
 		controller: function($scope){
+
 			//alert("controller");
 			// $scope.dogs = $scope.data + "dogs";
 			// if($scope.draggable)
@@ -108,6 +101,7 @@ function noteCard() {
 		       //placeholder: "ui-state-highlight",
 		        start: function(event, ui) {
 		        	console.log("START START START START START")
+		        	console.log(element)
 		        	console.log(tempData)
 		        	
 
@@ -195,37 +189,7 @@ function noteCard() {
                     lastModified: "1/22/2016",
                     sharedWith: "a.frozse.ak@gmail.com"
                 }
-		        	//scope.notes.push(rast)
-		        	//scope.note.items.push("raggots")
-		        	//scope.$apply();
 		        	
-
-		        	// var noteOriginIndex = ui.item.data('noteOriginIndex');
-		        	// var noteDestinationIndex = attrs.noteindex;
-		        	// ui.item.data('noteDestinationIndex', noteDestinationIndex);
-
-		        	// console.log("FROM NOTE: " + noteOriginIndex + " | TO NOTE: " + noteDestinationIndex)
-
-
-		         //    var start_pos = ui.item.data('start_pos');
-		         //    var end_pos = ui.item.index()-1;
-		         //    console.log(start_pos + ' - ' + end_pos);
-		          
-		         //   var startItem = ui.item.data('startItem')
-		         //   console.log("item to move: " + startItem)
-
-		         //   console.log(scope.notes[noteOriginIndex].items)
-		         //   console.log("destination")
-		         //   console.log(scope.notes[noteDestinationIndex].items)
-
-		         //   console.log("removing item: " + scope.notes[noteOriginIndex].items[start_pos]);
-		         //   scope.notes[noteOriginIndex].items.splice(start_pos,1)
-
-		         //   console.log("adding after position: " + end_pos)
-		         //   console.log("adding after: " + scope.notes[noteDestinationIndex].items[end_pos])
-		         //   scope.notes[noteDestinationIndex].items.splice(end_pos,0, startItem)
-		           //scope.notes[0] = rast;
-		         	//console.log(scope.notes)
 		           scope.$apply();
 		
 
@@ -241,6 +205,10 @@ function noteCard() {
 		controller: function($scope){
 
 			$scope.moose = "ding"
+			$scope.deleteItem = function(index){
+				console.log($scope.note)
+				console.log(index)
+			}
 
 			$scope.randomId = function(item){
    			 return "ID" + item + (Math.floor((Math.random() * 999) + 1));
