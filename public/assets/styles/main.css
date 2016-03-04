@@ -2,17 +2,15 @@ html{
 	height: 100%;
 }
 
-body{
-	!font-family: "jura","Helvetica","Arial","Sans-Serif";
-	!background: url('../images/mainBg.png');
+body{!font-
+	family: "jura","Helvetica","Arial","Sans-Serif";!background:url('../images/mainBg.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 50px;
 	height: 100%;
-		background: #CECECE;
-
+	background: #E0E0E0;
 }
 
 /*helpers*/
@@ -93,9 +91,8 @@ body{
 }
 
 .notes .header{
-	background: #FFC800;
+	background: #72C5FF;
 	box-shadow: 0px 0px 8px -3px;
-
 }
 
 .notes .title{
@@ -138,15 +135,33 @@ body{
 ul.itemsList{
 	padding: 0px;
 	margin: 0;
-	margin-left: 2px;}
+	margin-left: 2px;
+	min-height: 50px;
+	}
 
 
 li.noteItem{
 	list-style: none;
-	padding: 5px;
+	padding: 10px;
+	border: 0;
 	border-radius: 2px;
 	background: #EBEBEB;
 	margin: 5px 2px 5px 0px;
+	font-size: 16px;
+}
+
+.addItem{
+	border: 1px solid #CBCBCB;
+	border-radius: 2px;
+	padding: 10px;
+	color: gray;
+	margin: 1px;
+	width: 100%;
+	background: none;
+}
+
+.addItem:hover{
+	color: #636262;
 }
 
 

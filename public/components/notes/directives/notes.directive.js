@@ -7,7 +7,8 @@ function noteCards() {
 	return{
 		restrict: 'AE',
 		scope: {
-			notes: "="
+			notes: "=",
+			newItem: "="
 		},
 		replace: false,
 		transclude: false,
@@ -53,7 +54,14 @@ function noteCards() {
 
 		},
 		controller: function($scope){
-
+			$scope.form ={}
+			$scope.addItem = function(index,item){
+				//alert(index)
+				console.log($scope.newItem)
+				$scope.notes[index].items.push(item)
+				$scope.form = {}
+				//console.log($scope.notes[index].items)
+			}
 			//alert("controller");
 			// $scope.dogs = $scope.data + "dogs";
 			// if($scope.draggable)

@@ -8,6 +8,12 @@
             
             <note-card note="note" notes="notes" noteindex="{{$index}}">
             </note-card>
+            <form>
+            <input class="addItem" type="text" ng-model="form.newItem[$parent.$index][$index]">
+               <button class="addItem centerText" ng-click="addItem($index,form.newItem[$parent.$index][$index])"><i class="fa fa-plus-circle "> add item</i>
+
+               </button>
+            </form>
  
           </div>
         </div>
