@@ -17,7 +17,6 @@ body{!font-
 
 .clearPadding{
 	padding: 0;
-	!overflow: auto;
 }
 
 .clearMargin{
@@ -141,11 +140,13 @@ ul.itemsList{
 
 
 li.noteItem{
+	min-height: 44px;
 	list-style: none;
 	padding: 10px;
-	border: 0;
+	padding-left: 20px;
+	/* border: 0; */
 	border-radius: 2px;
-	background: #EBEBEB;
+	/* background: #EBEBEB; */
 	margin: 5px 2px 5px 0px;
 	font-size: 16px;
 }

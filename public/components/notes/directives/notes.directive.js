@@ -1,6 +1,8 @@
 angular
     .module('notes')
     .directive('noteCards', noteCards)
+
+
     
 
 function noteCards() {
@@ -62,6 +64,8 @@ function noteCards() {
 				$scope.form = {}
 				//console.log($scope.notes[index].items)
 			}
+
+
 			//alert("controller");
 			// $scope.dogs = $scope.data + "dogs";
 			// if($scope.draggable)
@@ -101,6 +105,7 @@ function noteCard() {
 			//scope.$watch('notes', function() {
 
         // all the code here...
+    		
     		
 			
 
@@ -213,9 +218,11 @@ function noteCard() {
 		controller: function($scope){
 
 			$scope.moose = "ding"
-			$scope.deleteItem = function(index){
-				console.log($scope.note)
+			$scope.deleteItem = function(parentIndex, index){
+				console.log(parentIndex)
 				console.log(index)
+				$scope.notes[parentIndex].items.splice(index,1)
+
 			}
 
 			$scope.randomId = function(item){
@@ -226,6 +233,8 @@ function noteCard() {
 			// if($scope.draggable)
 			// 	$scope.dragStatus = false;
 			// else $scope.dragStatus = true;
+
+			console.log($scope)
 
 			
 		}

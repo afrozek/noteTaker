@@ -36,14 +36,12 @@
 	    }
 
 	    vm.refreshBoard = function(){
-	    	//$scope.apply();
+	    	$scope.$apply();
 	    	console.log("REFRESHING.............")
 	    }
 
 
-	    vm.dragstart = function () {
-	    	console.log("drag started")
-	    }
+	    
 
 	    vm.gotoSession = gotoSession;
 	    vm.refresh = refresh;
