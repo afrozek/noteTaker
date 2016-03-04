@@ -1,8 +1,15 @@
 
 <ul id="sortable" class="itemsList connectedSortable" >
-	<li class="noteItem ui-state-default" ng-repeat="item in note.items track by randomId(item)" ng-click="dogs(note)"> <!-- <input type="checkbox"/>  -->{{item}}{{$parent.$parent.$index}}
-		<span class="floatRight" ng-click="deleteItem($parent.$parent.$index)"><i class="fa fa-times-circle"></i>
-</span>
+	<li class="noteItem ui-state-default" ng-repeat="item in note.items track by randomId(item)" ng-click="dogs(note)"> <!-- <input type="checkbox"/>  -->
+		<span ng-hide="editMode" ng-click="editMode = !editMode">
+			{{item}}
+		</span>
+		<input ng-show="editMode" ng-click="editMode = !editMode" ng-model="item" type="text">
+
+		<span class="floatRight" ng-click="deleteItem($parent.$parent.$index)">
+			<i class="fa fa-pencil"></i>
+		</span>
+		
 	 </li>
 
 </ul>
