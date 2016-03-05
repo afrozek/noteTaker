@@ -40,6 +40,15 @@
 	    	console.log("REFRESHING.............")
 	    }
 
+	    vm.newNote = {}
+	    vm.newNote.title = null;
+	    vm.newNote.items = []
+	    vm.addNote = function(){
+	    	var newNoteCopy = angular.copy(vm.newNote);
+	    	vm.newNote.title = "";
+	    	vm.notes.push(newNoteCopy)
+	    }
+
 
 	    
 

@@ -65,6 +65,10 @@ function noteCards() {
 				//console.log($scope.notes[index].items)
 			}
 
+			$scope.deleteNote = function(index){
+				$scope.notes.splice(index,1);
+			}
+
 
 			//alert("controller");
 			// $scope.dogs = $scope.data + "dogs";

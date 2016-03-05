@@ -146,9 +146,22 @@ li.noteItem{
 	padding-left: 20px;
 	/* border: 0; */
 	border-radius: 2px;
-	/* background: #EBEBEB; */
+	background: #F4F2F2;
 	margin: 5px 2px 5px 0px;
 	font-size: 16px;
+}
+
+.addNote{
+	background: white;
+	width: 320px;
+	padding: 12px 17px 12px 17px;
+	margin-top: 14px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 6px -3px;
+}
+
+.addNote button{
+	color: gray;
 }
 
 .addItem{

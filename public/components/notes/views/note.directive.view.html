@@ -3,7 +3,10 @@
         <div class="note ">
           <h3 class="noteTitle">
             {{note.title}}
+            <i class="fa fa-trash floatRight" ng-click="deleteNote($index)"></i>
           </h3>
+
+
           <div class="noteBody">
             
             <note-card note="note" notes="notes" noteindex="{{$index}}">
