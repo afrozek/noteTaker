@@ -5,9 +5,9 @@
 		.module('notes')
 		.controller('notesCtrl', notesCtrl)
 
-	notesCtrl.$inject = ['notesService','$scope','$http']
+	notesCtrl.$inject = ['notesService','$scope','$http','toastr']
 
-	function notesCtrl(notesService,$scope, $http) {
+	function notesCtrl(notesService,$scope, $http, toastr) {
 
 		console.log("notes ctrl");
 
@@ -23,6 +23,12 @@
 	   vm.saveNotes = function(){
 	   	notesService.saveNotes(vm.notes).then(function(res){
                console.log(res)
+               if(res.data.success == true){
+               	toastr.success("Notes Saved")
+               }
+               else{
+               	toastr.error("sorry notes not saved")
+               }
             })
 	   }
 	    //console.log(vm.notes[0].items[0])
