@@ -3,7 +3,7 @@
         <div class="note ">
           <h3 class="noteTitle">
             {{note.title}}
-            <i class="fa fa-trash floatRight" ng-click="deleteNote($index)"></i>
+            <i class="fa fa-trash floatRight deleteNote" ng-click="deleteNote($index)"></i>
           </h3>
 
 
@@ -12,7 +12,7 @@
             <note-card note="note" notes="notes" noteindex="{{$index}}">
             </note-card>
             <form>
-            <input class="addItem" type="text" ng-model="form.newItem[$parent.$index][$index]">
+            <input class="addItem" type="text" placeholder="item..." ng-model="form.newItem[$parent.$index][$index]">
                <button class="addItem centerText" ng-click="addItem($index,form.newItem[$parent.$index][$index])"><i class="fa fa-plus-circle "> add item</i>
 
                </button>
