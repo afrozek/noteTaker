@@ -11,6 +11,8 @@ body{!font-
 	padding-top: 50px;
 	height: 100%;
 	background: #E0E0E0;
+	background: url("http://www.egg-tooth.com/wp-content/uploads/2014/01/clean-white-polygon-backgrounds-7.jpg");
+	background-size: 100%;
 }
 
 /*helpers*/
@@ -91,13 +93,19 @@ body{!font-
 
 .notes .header{
 	background: #72C5FF;
-	box-shadow: 0px 0px 8px -3px;
+	background: url("http://cdn.pcwallart.com/images/polygon-wallpaper-1.jpg");
+	background-size: 100%;
+	background-position-y: 664px;
+	box-shadow: 0px -4px 6px 5px;
 }
+
+.header {}
 
 .notes .title{
 	font-weight: 100;
 	letter-spacing: 2px;
 	padding: 20px;
+	color: #d9edf7;
 }
 
 .notesContainer{
@@ -114,7 +122,9 @@ body{!font-
 .note{
 	background: white;
 	padding: 10px;
-	border-radius: 2px;
+	border-radius: 7px;
+	border-top: 7px solid #5AB6F3;
+	border-bottom: 10px solid #5AB6F3;
 	box-shadow: 0px 0px 8px -3px;
 }
 
@@ -122,9 +132,13 @@ body{!font-
 	font-weight: 200;
 	margin: 2px;
 	/* background: #76FFB9; */
-	padding: 5px 10px 5px 10px;
+	padding: 7px 10px 7px 20px;
 	/* border-radius: 2px; */
 	border-bottom: 1px solid #E5E5E5;
+	background: #5AB6F3;
+	border-radius: 3px;
+	color: white;
+	min-height: 41px;
 }
 
 .noteBody{
@@ -149,6 +163,7 @@ li.noteItem{
 	background: #F4F2F2;
 	margin: 5px 2px 5px 0px;
 	font-size: 16px;
+	/* border-color: blue; */
 }
 
 .notesNav{
@@ -159,12 +174,24 @@ li.noteItem{
 	/* margin-top: 14px; */
 	margin: 10px;
 	margin-top: 22px;
-	border-radius: 3px;
+	border-radius: 5px;
 	box-shadow: 0px 0px 6px -3px;
+	border-top: 4px solid #5AB6F3;
+	border-bottom: 4px solid #5AB6F3;
 }
 
 .saveChanges{
 	margin-right: 10px;
+}
+
+.saveChanges button{
+	background: #5AB6F3;
+	color: white;
+	border: none;
+}
+
+.saveChanges button:hover{
+	background: #2681B3;
 }
 
 .addNote{
@@ -176,13 +203,13 @@ li.noteItem{
 }
 
 .addItem{
-	border: 1px solid #CBCBCB;
+	border: 1px solid #5AB6F3;
 	border-radius: 2px;
 	padding: 10px;
-	color: gray;
+	color: #FFFFFF;
 	margin: 1px;
 	width: 100%;
-	background: none;
+	background: #5AB6F3;
 }
 
 .addItem:hover{
