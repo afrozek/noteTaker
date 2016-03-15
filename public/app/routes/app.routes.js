@@ -67,6 +67,17 @@ angular.module('app')
 			}
 		})
 
+		.state('app.budget',{
+			url: '/budget',
+			templateUrl:'components/budget/views/budget.view.html',
+			controller: 'budgetCtrl',
+			controllerAs: 'budget',
+			data: {
+				permission: true,
+				permissionLevel: ['admin']
+			}
+		})
+
 		//$httpProvider.interceptors.push('authInterceptor');
 
 

@@ -10,7 +10,8 @@ angular
     	'toastr',
     	'auth',
     	'members',
-    	'notes'
+    	'notes',
+        'budget'
     ])
 
 

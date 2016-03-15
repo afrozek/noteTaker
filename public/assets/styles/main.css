@@ -2,8 +2,8 @@ html{
 	height: 100%;
 }
 
-body{!font-
-	family: "jura","Helvetica","Arial","Sans-Serif";!background:url('../images/mainBg.png');
+body{
+	!font-family: "jura","Helvetica","Arial","Sans-Serif";!background:url('../images/mainBg.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -58,6 +58,10 @@ body{!font-
 
 .centerText{
 	text-align: center;
+}
+
+.overflow{
+	overflow: auto;
 }
 /*colors*/
 
@@ -247,7 +251,147 @@ input.addItem{
 	color: gray;
 }
 
+#budgetPage{
+	background: whitesmoke;
+	/* font-family: helvetica; */
+	/* font-size: 80%; */
+}
 
+#budgetPage .column{
+	width: 33.33%;
+	height: 100%;
+	float:left;
+	overflow: auto;
+	background: #DEDEDE;
+}
+
+
+#budgetPage h2{
+	background: #DADC57;
+	color: white;
+	margin: 0;
+	font-weight: 300;
+	/* text-align: center; */
+	padding: 7px;
+	font-size: 1.4em;
+	position: fixed;
+	width: 100%;
+	z-index: 99;
+}
+
+#budgetPage .box{
+	background: white;
+}
+
+#budgetPage .card{
+	/* padding-top: 12px; */
+	background: whitesmoke;
+	margin: 10px;
+	position: relative;
+	z-index: 97;
+	padding: 10px;
+	overflow: auto;
+	box-shadow: 0px 1px 3px -2px gray;
+	/* margin-top: 47px; */
+	}
+
+
+
+#budgetPage .card h3{
+	margin: 0;
+	padding: 5px;
+	font-size: 1.2em;
+	color: #4E4E4E;
+	margin-bottom: 5px;
+	/* border-bottom: 1px solid gray; */
+	/* padding-bottom: 4px; */
+	background: #EAE9E9;
+}
+
+#budgetPage .card h4{
+	margin: 0;
+	/* padding: 5px; */
+	font-size: 1.1em;
+	color: #4E4E4E;
+}
+
+#budgetPage .card p{
+	margin: 0;
+	/* padding: 5px; */
+	color: gray;
+}
+
+#budgetPage .column:nth-child(2) .card{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+
+
+#budgetPage .card .item{overflow: auto;position: relative;}
+
+#budgetPage .card .item p{
+	float: left;
+	position: relative;
+	bottom: -12px;
+}
+
+#budgetPage .card .item .number{float: right;font-size: 1.8em;color: #59DEDD;}
+
+#budgetPage .card ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+
+}
+
+#budgetPage .card ul li{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
+#budgetPage .card ul li:before{
+	position: relative;
+	top: 12px;
+	float: left;
+	width: 0;
+	white-space: nowrap;
+	color: gray;
+	content:
+	". . . . . . . . . . . . . . . . . . . . "
+	". . . . . . . . . . . . . . . . . . . . "
+	". . . . . . . . . . . . . . . . . . . . "
+	". . . . . . . . . . . . . . . . . . . . ";
+}
+
+#budgetPage span + span {
+	position: relative;
+	z-index: 98;
+	float: right;
+	font-size: 1.9em;
+	color: #59DEDD;
+	background: whitesmoke;
+}
+
+#budgetPage span.title {
+	position: relative;
+	top: 12px;
+	background: whitesmoke;
+	color: gray;
+}
+
+#budgetPage .column .card:first-of-type{
+	margin-top: 45px;
+}
+
+#budgetPage .column .card .budgetItem{
+	padding: 5px;
+	/* background: gray; */
+	margin-top: 5px;
+	border-bottom: 1px solid #D6D3D3;
+}
 
 
 /*transitions*/
