@@ -11,7 +11,8 @@ angular
     	'auth',
     	'members',
     	'notes',
-        'budget'
+        'budget',
+        'chart.js'
     ])
 
 

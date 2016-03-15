@@ -349,10 +349,19 @@ input.addItem{
 #budgetPage .card ul li{
 	overflow-x: hidden;
 	overflow-y: auto;
+	/* margin-bottom: 5px; */
+	padding: 6px;
+	/* background: red; */
+}
+
+#budgetPage #income ul li{
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0;
 }
 
 
-#budgetPage .card ul li:before{
+#budgetPage #income ul li:before{
 	position: relative;
 	top: 12px;
 	float: left;
@@ -366,7 +375,27 @@ input.addItem{
 	". . . . . . . . . . . . . . . . . . . . ";
 }
 
+#budgetPage .card ul li:before{
+	position: relative;
+	float: left;
+	width: 0;
+	white-space: nowrap;
+	color: gray;
+	content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+}
+
 #budgetPage span + span {
+	padding-left: 4px;
+	position: relative;
+	z-index: 98;
+	float: right;
+	color: #59DEDD;
+	background: whitesmoke;
+	color: red;
+	/* font-size: 1.1em; */
+}
+
+#budgetPage #income span + span {
 	position: relative;
 	z-index: 98;
 	float: right;
@@ -377,9 +406,17 @@ input.addItem{
 
 #budgetPage span.title {
 	position: relative;
+	background: whitesmoke;
+	color: gray;
+	padding-right: 5px;
+}
+
+#budgetPage  #income span.title {
+	position: relative;
 	top: 12px;
 	background: whitesmoke;
 	color: gray;
+	padding-right: 5px;
 }
 
 #budgetPage .column .card:first-of-type{

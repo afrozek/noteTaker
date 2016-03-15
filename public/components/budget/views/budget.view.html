@@ -1,57 +1,48 @@
 
   <div id="budgetPage" class="fullHeight  ">
 
+
+
 <!-- column  -->
    <div class="column">
     <h2>Input Data</h2>
 
-    <div class="card">
-      <h3>New Expense</h3>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
+    <div id="income" class="card">
+      <h3>Income</h3>
+      <ul>
+        <li><span class="title">monthly</span><span >$5000</span></li>
+        <li><span class="title">yearly</span><span>$60000</span></li>
+
+      </ul>
     </div>
 
     <div class="card">
-      <h3>New Expense</h3>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-    </div>
+      <h3>Bills</h3>
+      <ul>
+        <li><span class="title">rent</span><span>$2500</span></li>
+        <li><span class="title">utilties</span><span>$300</span></li>
+        <li><span class="title">car insurance</span><span>$200</span></li>
+        <li><span class="title">car payment</span><span>$300</span></li>
+        <li><span class="title">gas</span><span>$100</span></li>
+        <li><span class="title">gym membership</span><span>$40</span></li>
+        <li><span class="title">utilties</span><span>$300</span></li>
+      </ul>
 
-    <div class="card">
-      <h3>New Expense</h3>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
     </div>
 
    </div> 
-
-<!-- column  -->
+   <!-- column  -->
    <div class="column">
     <h2>Input Data</h2>
 
     <div class="card">
       <h3>New Expense</h3>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
+      
+      <canvas id="doughnut" class="chart chart-doughnut"
+        chart-data="data" chart-labels="labels">
+      </canvas> 
     </div>
 
-    <div class="card">
-      <h3>New Expense</h3>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-    </div>
-
-    <div class="card">
-      <h3>New Expense</h3>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-      <p>gym membership ........ $40</p>
-    </div>
 
    </div> 
 
@@ -69,17 +60,10 @@
       </div>
     </div> -->
 
-    <div class="card">
-      <h3>Income</h3>
-      <ul>
-        <li><span class="title">monthly</span><span>$5000</span></li>
-        <li><span class="title">yearly</span><span>$60000</span></li>
 
-      </ul>
-    </div>
 
     <div class="card">
-      <h3>Budget</h3>
+      <h3>Monthly Budget</h3>
 
       <div class="budgetItem">
         <h4>food</h4>
@@ -98,33 +82,49 @@
       </div>
 
       <div class="budgetItem">
-        <h4>food</h4>
+        <h4>clothing</h4>
         <div class="overflow">
-            <p class="floatLeft">$50 of $300 spent</p>
-            <p class="floatRight">$250 remaining</p>
+            <p class="floatLeft">$100 of $200 spent</p>
+            <p class="floatRight">$100 remaining</p>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-success" style="width: 90%">
-            90%
+          <div class="progress-bar progress-bar-info" style="width: 50%">
+            50%
           </div>
-          <div class="progress-bar progress-bar-danger" style="width: 10%">
-            10%
+          <div class="progress-bar progress-bar-danger" style="width: 50%">
+            50%
           </div>
         </div>
       </div>
 
       <div class="budgetItem">
-        <h4>food</h4>
+        <h4>impulse</h4>
         <div class="overflow">
-            <p class="floatLeft">$50 of $300 spent</p>
-            <p class="floatRight">$250 remaining</p>
+            <p class="floatLeft">$50 of $150 spent</p>
+            <p class="floatRight">$100 remaining</p>
         </div>
         <div class="progress">
-          <div class="progress-bar progress-bar-success" style="width: 90%">
-            90%
+          <div class="progress-bar progress-bar-warning" style="width: 33%">
+            33%
           </div>
-          <div class="progress-bar progress-bar-danger" style="width: 10%">
-            10%
+          <div class="progress-bar progress-bar-danger" style="width: 66%">
+            66%
+          </div>
+        </div>
+      </div>
+
+       <div class="budgetItem">
+        <h4>charity</h4>
+        <div class="overflow">
+            <p class="floatLeft">$50 of $150 spent</p>
+            <p class="floatRight">$100 remaining</p>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" style="width: 33%">
+            33%
+          </div>
+          <div class="progress-bar progress-bar-danger" style="width: 66%">
+            66%
           </div>
         </div>
       </div>
