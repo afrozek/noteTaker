@@ -10,7 +10,8 @@
 	function budgetCtrl($scope, $http, toastr) {
 		console.log('loaded budgetCtrl');
 	
-
+		// $scope.Math = window.Math;
+		
 		 $scope.labels = ["Bills", "Budget", "Remaining"];
   			$scope.data = [300, 500, 200];
 
@@ -40,6 +41,15 @@
   			$scope.removeBillItem = function(index){
   				$scope.bills.splice(index,1);
   			}
+
+  			//budget
+  			$scope.budgetItems = [];
+  			$scope.budgetItems = [
+  				{name: "eat out", budget: 100, spent: 30},
+  				{name: "clothing", budget: 200, spent: 90},
+  				{name: "activities", budget: 200, spent: 110},
+  				{name: "charity", budget: 200, spent: 200}
+  			]
 
 
 
