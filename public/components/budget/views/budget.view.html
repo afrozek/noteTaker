@@ -10,23 +10,50 @@
     <div id="income" class="card">
       <h3>Income</h3>
       <ul>
-        <li><span class="title">monthly</span><span >$5000</span></li>
-        <li><span class="title">yearly</span><span>$60000</span></li>
+        <li>
+          <span class="title">monthly</span>
+          <span ng-hide="editing" ng-click="editing = !editing">${{income.monthly}}</span>
+          <span class="editField" ng-show="editing" ><input type="text" ng-model="income.monthly">
+               <i class="fa fa-check-circle" ng-click="editing = !editing"></i>
+          </span>
+
+        </li>
+        
+        <li><span class="title">yearly</span><span>${{income.monthly * 12}}</span></li>
 
       </ul>
     </div>
 
-    <div class="card">
-      <h3>Bills</h3>
+    <div id="bills" class="card">
+      <h3>Bills 
+        <i class="fa fa-pencil floatRight" ng-hide="b.editing" ng-click="b.editing = !b.editing"></i>
+        <i class="fa fa-check-circle floatRight check" ng-show="b.editing" ng-click="b.editing = !b.editing"></i>
+      </h3>
       <ul>
-        <li><span class="title">rent</span><span>$2500</span></li>
-        <li><span class="title">utilties</span><span>$300</span></li>
-        <li><span class="title">car insurance</span><span>$200</span></li>
-        <li><span class="title">car payment</span><span>$300</span></li>
-        <li><span class="title">gas</span><span>$100</span></li>
-        <li><span class="title">gym membership</span><span>$40</span></li>
-        <li><span class="title">utilties</span><span>$300</span></li>
+        <li ng-repeat="bill in bills">
+          <span class="title">
+            <i class="fa fa-times-circle delete" ng-click="removeBillItem($index)" ng-show="b.editing"></i>
+           {{bill.name}}
+          </span>
+          <span ng-hide="b.editing" >${{bill.cost}}</span>
+          <input class="floatRight editField" type="text" ng-show="b.editing" ng-model="bill.cost">
+        </li>
       </ul>
+
+     <div class="newItem" ng-show="b.editing">
+
+       <div class="input-group">
+        <input type="text" class="form-control" ng-model="newBillName" placeholder="New Bill Name">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button"  ng-click="addNewBill()">Add</button>
+        </span>
+      </div><!-- /input-group -->
+
+     </div>
+
+
+
+
 
     </div>
 
@@ -36,7 +63,7 @@
     <h2>Input Data</h2>
 
     <div class="card">
-      <h3>New Expense</h3>
+      <h3>Monthly Overview</h3>
       
       <canvas id="doughnut" class="chart chart-doughnut"
         chart-data="data" chart-labels="labels">
