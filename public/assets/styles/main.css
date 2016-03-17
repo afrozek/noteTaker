@@ -63,6 +63,14 @@ body{
 .overflow{
 	overflow: auto;
 }
+
+.padding5{
+	padding: 5px;
+}
+
+.padding10{
+	padding: 10px;
+}
 /*colors*/
 
 .softBlue{
@@ -471,6 +479,29 @@ input.addItem{
 #budgetPage #monthlyBudget .budgetItem input.editBudgetItem  {
 	width: 50px;
 }
+
+
+
+#budgetPage #monthlyBudget  .newBudgetItem{
+	height: 30px;
+	overflow: hidden;
+	transition: .4s;
+}
+
+#budgetPage #monthlyBudget  .newBudgetItem:hover{
+	transition: .4s;
+	height: 110px;
+}
+
+#budgetPage #monthlyBudget  .newBudgetItem:hover p{
+	transition: .4s;
+	position: relative;
+	margin-top: -30px;
+	visibility: hidden;
+}
+
+
+
 
 
 

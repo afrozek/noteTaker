@@ -11,7 +11,7 @@
 		console.log('loaded budgetCtrl');
 	
 		// $scope.Math = window.Math;
-		
+
 		 $scope.labels = ["Bills", "Budget", "Remaining"];
   			$scope.data = [300, 500, 200];
 
@@ -42,14 +42,17 @@
   				$scope.bills.splice(index,1);
   			}
 
-  			//budget
+  			//budget items
   			$scope.budgetItems = [];
   			$scope.budgetItems = [
   				{name: "eat out", budget: 100, spent: 30},
-  				{name: "clothing", budget: 200, spent: 90},
-  				{name: "activities", budget: 200, spent: 110},
-  				{name: "charity", budget: 200, spent: 200}
+  				{name: "clothing", budget: 200, spent: 90}
   			]
+
+  			$scope.addNewBudgetItem = function(){
+  				$scope.budgetItems.push({name: $scope.newBudgetItemName, budget: 0, spent: 0 })
+  				$scope.newBudgetItemName = "";
+  			}
 
 
 
