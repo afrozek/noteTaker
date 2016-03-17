@@ -33,6 +33,8 @@
 
   			]
 
+        
+
   			$scope.addNewBill = function(){
   				$scope.bills.push({name: $scope.newBillName, cost: 0 })
   				$scope.newBillName = "";
@@ -55,7 +57,50 @@
   			}
 
 
+        $scope.monthlyOverview = {};
+        $scope.monthlyOverview.billsTotal = 0;
+        $scope.monthlyOverview.budgetTotal = 0;
+        $scope.monthlyOverview.totalExpenditure = 0;
 
+        
+        $scope.calculateBillsTotal = function() {
+          var total = 0;
+          for(var i = 0; i < $scope.bills.length; i++){
+            total = total + $scope.bills[i].cost;
+          }
+          $scope.monthlyOverview.billsTotal = total;
+          $scope.calculateTotalExpenditure()
+          return total;
+        }
+
+        
+
+        $scope.calculateBudgetTotal = function() {
+          var total = 0;
+          for(var i = 0; i < $scope.budgetItems.length; i++){
+            total = total + $scope.budgetItems[i].budget;
+          }
+          $scope.monthlyOverview.budgetTotal = total;
+          $scope.calculateTotalExpenditure()
+          return total;       
+        }
+
+        
+
+
+
+       $scope.$watch("bills", $scope.calculateBillsTotal, true)
+       $scope.$watch("budgetItems", $scope.calculateBudgetTotal, true)
+     // $scope.$watch("budgetItems", $scope.calculateBudgetTotal, true)
+
+
+        $scope.calculateTotalExpenditure = function  () {
+             $scope.monthlyOverview.totalExpenditure = $scope.monthlyOverview.billsTotal + $scope.monthlyOverview.budgetTotal;
+        }
+
+        $scope.calculateBillsTotal();
+        $scope.calculateBudgetTotal();
+        $scope.calculateTotalExpenditure();
 
 
 

@@ -275,7 +275,7 @@ input.addItem{
 
 
 #budgetPage h2{
-	background: #DADC57;
+	background: #F4F760;
 	color: white;
 	margin: 0;
 	font-weight: 300;
@@ -293,7 +293,7 @@ input.addItem{
 
 #budgetPage .card{
 	/* padding-top: 12px; */
-	background: whitesmoke;
+	background: white;
 	margin: 10px;
 	position: relative;
 	z-index: 97;
@@ -307,13 +307,15 @@ input.addItem{
 
 #budgetPage .card h3{
 	margin: 0;
-	padding: 5px;
+	padding: 7px;
 	font-size: 1.3em;
 	color: #4E4E4E;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	/* border-bottom: 1px solid gray; */
 	/* padding-bottom: 4px; */
-	background: #EAE9E9;
+	background: #EAEAEA;
+	text-align: center;
+	border-radius: 4px;
 }
 
 #budgetPage .card h4{
@@ -321,6 +323,7 @@ input.addItem{
 	/* padding: 5px; */
 	font-size: 1.2em;
 	color: #4E4E4E;
+	/* text-align: center; */
 }
 
 #budgetPage .card p{
@@ -328,6 +331,7 @@ input.addItem{
 	margin: 0;
 	/* padding: 5px; */
 	color: gray;
+	/* text-align: center; */
 }
 
 #budgetPage .column:nth-child(2) .card{
@@ -355,7 +359,7 @@ input.addItem{
 
 }
 
-#budgetPage .card ul li{
+#budgetPage #bills ul li{
 	overflow-x: hidden;
 	overflow-y: auto;
 	/* margin-bottom: 5px; */
@@ -384,7 +388,7 @@ input.addItem{
 	". . . . . . . . . . . . . . . . . . . . ";
 }
 
-#budgetPage .card ul li:before{
+#budgetPage #bills ul li:before{
 	position: relative;
 	float: left;
 	width: 0;
@@ -393,7 +397,7 @@ input.addItem{
 	content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
 }
 
-#budgetPage span + span {
+#budgetPage #bills span + span {
 	padding-left: 4px;
 	position: relative;
 	z-index: 98;
@@ -410,12 +414,12 @@ input.addItem{
 	float: right;
 	font-size: 1.9em;
 	color: #59DEDD;
-	background: whitesmoke;
+	background: white;
 }
 
 #budgetPage span.title {
-	position: relative;
-	background: whitesmoke;
+	position: relative;	
+	background: white;
 	color: gray;
 	padding-right: 5px;
 	font-size: 1.2em;
@@ -500,8 +504,31 @@ input.addItem{
 	visibility: hidden;
 }
 
+#budgetPage #monthlyOverview{
 
+}
 
+#budgetPage p.mdNum{
+	font-size: 2.5em;
+}
+
+#budgetPage p.lgNum{
+	font-size: 2.9em;
+	
+}
+
+#budgetPage p.orangeFont{
+	color: #E49171;
+}
+
+#budgetPage p.blueFont{
+	color: #59DEDD;
+}
+
+/*#budgetPage #monthlyOverview .col-md-6{padding: 10px 0px;text-align: center;}
+*/
+
+#budgetPage #monthlyOverview div[class*="col-md"] {padding: 10px 0px; text-align: center; }
 
 
 

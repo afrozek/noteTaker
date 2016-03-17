@@ -13,7 +13,7 @@
         <li>
           <span class="title">monthly</span>
           <span ng-hide="editing" ng-click="editing = !editing">${{income.monthly}}</span>
-          <span class="editField" ng-show="editing" ><input type="text" ng-model="income.monthly">
+          <span class="editField" ng-show="editing" ><input type="number" ng-model="income.monthly">
                <i class="fa fa-check-circle" ng-click="editing = !editing"></i>
           </span>
 
@@ -36,14 +36,14 @@
            {{bill.name}}
           </span>
           <span ng-hide="b.editing" >${{bill.cost}}</span>
-          <input class="floatRight editField" type="text" ng-show="b.editing" ng-model="bill.cost">
+          <input class="floatRight editField" type="number" ng-show="b.editing" ng-model="bill.cost">
         </li>
       </ul>
 
      <div class="newItem" ng-show="b.editing">
 
        <div class="input-group">
-        <input type="text" class="form-control" ng-model="newBillName" placeholder="New Bill Name">
+        <input type="number" class="form-control" ng-model="newBillName" placeholder="New Bill Name">
         <span class="input-group-btn">
           <button class="btn btn-success" type="button"  ng-click="addNewBill()">Add</button>
         </span>
@@ -62,12 +62,45 @@
    <div class="column">
     <h2>Input Data</h2>
 
-    <div class="card">
+    <div id="monthlyOverview" class="card">
       <h3>Monthly Overview</h3>
       
       <canvas id="doughnut" class="chart chart-doughnut"
-        chart-data="data" chart-labels="labels">
+        chart-data="data" chart-labels="labels" >
       </canvas> 
+
+
+      <div class="col-md-6">
+        <h4>Monthly Bills</h4>
+        <p class="mdNum" >${{monthlyOverview.billsTotal}}</p>
+      </div>
+      <div class="col-md-6">
+        <h4>Monthly Budget</h4>
+        <p class="mdNum" >${{monthlyOverview.budgetTotal}}</p>
+   <!--      <p >$200 spent</p>
+        <p >$100 remaining</p> -->
+      </div>
+      <div class="col-md-6">
+        <h4>Total  Expenditure </h4>
+        <p class="mdNum">$1000</p>
+      </div>
+      <div class="col-md-6">
+        <h4>Total Estimated Expenditure </h4>
+        <p class="lgNum orangeFont">${{monthlyOverview.totalExpenditure}}</p>
+      </div>
+      <div class="col-md-12">
+        <h4>Total Estimated Savings </h4>
+        <p class="lgNum blueFont" >$800</p>
+      </div>
+
+    <!--   <h4>Monthly Bills</h4>
+      <p>$300</p>
+      <p> Current Budget Spending: $500 of $1000</p>
+      <p class="totals">Total Spent : $800 of $4500</p>
+      <p class="totals">Total Remaining : $800 </p> -->
+
+
+
     </div>
 
 
@@ -102,7 +135,7 @@
         </h4>
         <div class="overflow">
             <p class="floatLeft">${{item.spent}} of $<span ng-hide="budgetItem.editing">{{item.budget}}</span>
-              <input  class="editBudgetItem"type="text" ng-show="budgetItem.editing" ng-model="item.budget">
+              <input  class="editBudgetItem"type="number" ng-show="budgetItem.editing" ng-model="item.budget">
              spent</p>
             <p class="floatRight" >${{item.budget - item.spent}} remaining</p>
         </div>
@@ -123,7 +156,7 @@
       add new item 
     </p>
       <div class="input-group">
-        <input type="text" class="form-control" ng-model="newBudgetItemName" placeholder="New Buget Item Name">
+        <input type="number" class="form-control" ng-model="newBudgetItemName" placeholder="New Buget Item Name">
         <span class="input-group-btn">
           <button class="btn btn-success" type="button"  ng-click="addNewBudgetItem()">Add</button>
         </span>
@@ -131,6 +164,10 @@
 </div>
 
     </div>
+
+    <!-- <div class="card">
+      {{bills}}
+    </div> -->
 
    </div> 
 
