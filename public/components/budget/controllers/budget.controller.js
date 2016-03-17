@@ -60,7 +60,8 @@
         $scope.monthlyOverview = {};
         $scope.monthlyOverview.billsTotal = 0;
         $scope.monthlyOverview.budgetTotal = 0;
-        $scope.monthlyOverview.totalExpenditure = 0;
+        $scope.monthlyOverview.budgetSpentTotal = 0;
+        $scope.monthlyOverview.totalEstimatedExpenditure = 0;
 
         
         $scope.calculateBillsTotal = function() {
@@ -85,21 +86,34 @@
           return total;       
         }
 
+        $scope.calculateBudgetSpentTotal = function() {
+          var total = 0;
+          for(var i = 0; i < $scope.budgetItems.length; i++){
+            total = total + $scope.budgetItems[i].spent;
+          }
+          $scope.monthlyOverview.budgetSpentTotal = total;
+          //$scope.calculateTotalExpenditure()
+          return total;       
+        }
+
         
 
 
 
        $scope.$watch("bills", $scope.calculateBillsTotal, true)
        $scope.$watch("budgetItems", $scope.calculateBudgetTotal, true)
+       $scope.$watch("budgetItems", $scope.calculateBudgetSpentTotal, true)
+
      // $scope.$watch("budgetItems", $scope.calculateBudgetTotal, true)
 
 
         $scope.calculateTotalExpenditure = function  () {
-             $scope.monthlyOverview.totalExpenditure = $scope.monthlyOverview.billsTotal + $scope.monthlyOverview.budgetTotal;
+             $scope.monthlyOverview.totalEstimatedExpenditure = $scope.monthlyOverview.billsTotal + $scope.monthlyOverview.budgetTotal;
         }
 
         $scope.calculateBillsTotal();
         $scope.calculateBudgetTotal();
+        $scope.calculateBudgetSpentTotal();
         $scope.calculateTotalExpenditure();
 
 
