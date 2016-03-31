@@ -51,7 +51,7 @@
 
 	} // end parentCtrl
 
-})()
+})();
 
 
 

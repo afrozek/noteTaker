@@ -165,4 +165,4 @@
   gulp.task('deploy-minor', sequence('default', 'bump-minor', 'update', 'git-commit', 'git-push', 'npm'));
   gulp.task('deploy-major', sequence('default', 'bump-patch', 'update', 'git-commit', 'git-push', 'npm'));
 
-})();
+})();;

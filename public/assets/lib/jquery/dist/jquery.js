@@ -4049,7 +4049,7 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 	// Make sure textarea (and checkbox) defaultValue is properly cloned
 	div.innerHTML = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
-})();
+})();;
 var strundefined = typeof undefined;
 
 
@@ -5702,7 +5702,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 			}
 		});
 	}
-})();
+})();;
 
 
 // A method for quickly swapping in/out CSS properties to get correct calculations.
@@ -6937,7 +6937,7 @@ jQuery.fn.delay = function( time, type ) {
 	input.value = "t";
 	input.type = "radio";
 	support.radioValue = input.value === "t";
-})();
+})();;
 
 
 var nodeHook, boolHook,

@@ -5,9 +5,9 @@
 		.module('app')
 		.controller('appCtrl', appCtrl)
 
-	appCtrl.$inject = ['sampleService','authService','$state','$http','toastr','$rootScope']
+	appCtrl.$inject = ['sampleService','authService','$state','$http','toastr','$rootScope','notifyService']
 
-	function appCtrl(sampleService,authService,$state, $http, toastr, $rootScope) {
+	function appCtrl(sampleService,authService,$state, $http, toastr, $rootScope,notifyService) {
 
 		 var vm = this;
 
@@ -23,8 +23,14 @@
 		 	vm.isLogged = false;
 		 })
 
+		 var message = {data : "roosts"};
+		 //notifyService.push( message);
+
+		 //alert("watching");
+
+
 	} //end appCtrl
 
-})()
+})();;
 
 

@@ -89,7 +89,7 @@ define([
 			}
 		});
 	}
-})();
+})();;
 
 return support;
 

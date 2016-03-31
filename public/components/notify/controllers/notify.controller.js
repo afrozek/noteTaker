@@ -2,27 +2,24 @@
 	'use strict'
 
 	angular
-		.module('app')
-		.controller('navCtrl', navCtrl)
+		.module('notify')
+		.controller('notifyCtrl', notifyCtrl)
 
-	navCtrl.inject = ['']
+	// notifyCtrl.$inject = []
 
-	function navCtrl() {
-		
-		//console.log('nav controller');
+	function notifyCtrl() {
 
 	    var vm = this;
 
-
-	    vm.loggedIn = true;
 	    vm.gotoSession = gotoSession;
 	    vm.refresh = refresh;
 	    vm.search = search;
 	    vm.sessions = [];
-	    vm.title = 'Nav';
-	    //$scope.title = "mouse";
+	    vm.title = 'notify';
 
 	    ////////////
+
+	    
 
 	    function gotoSession() {
 	      /* */

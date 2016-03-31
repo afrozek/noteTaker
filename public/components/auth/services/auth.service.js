@@ -186,6 +186,6 @@
 
 	
 
-})() //end iffe
+})(); //end iffe
 
 

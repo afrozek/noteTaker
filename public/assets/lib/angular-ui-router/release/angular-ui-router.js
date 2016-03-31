@@ -25,7 +25,7 @@ var isDefined = angular.isDefined,
     copy = angular.copy;
 
 function inherit(parent, extra) {
-  return extend(new (extend(function() {}, { prototype: parent }))(), extra);
+  return extend(new (extend(function() {}, { prototype: parent }))();, extra);
 }
 
 function merge(dst) {

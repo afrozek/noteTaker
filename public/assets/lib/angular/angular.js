@@ -3212,7 +3212,7 @@ forEach({
       }
       element.textContent = value;
     }
-  })(),
+  })();,
 
   val: function(element, value) {
     if (isUndefined(value)) {
@@ -3641,7 +3641,7 @@ function hashKey(obj, nextUidFn) {
 
   var objType = typeof obj;
   if (objType == 'function' || (objType == 'object' && obj !== null)) {
-    key = obj.$$hashKey = objType + ':' + (nextUidFn || nextUid)();
+    key = obj.$$hashKey = objType + ':' + (nextUidFn || nextUid)();;
   } else {
     key = objType + ':' + obj;
   }
@@ -5555,7 +5555,7 @@ function Browser(window, document, $log, $sniffer) {
       if (outstandingRequestCount === 0) {
         while (outstandingRequestCallbacks.length) {
           try {
-            outstandingRequestCallbacks.pop()();
+            outstandingRequestCallbacks.pop()();;
           } catch (e) {
             $log.error(e);
           }
@@ -15594,7 +15594,7 @@ function $RootScopeProvider() {
 
         return function deregisterWatchGroup() {
           while (deregisterFns.length) {
-            deregisterFns.shift()();
+            deregisterFns.shift()();;
           }
         };
       },
@@ -15943,7 +15943,7 @@ function $RootScopeProvider() {
 
         while (postDigestQueue.length) {
           try {
-            postDigestQueue.shift()();
+            postDigestQueue.shift()();;
           } catch (e) {
             $exceptionHandler(e);
           }
@@ -16441,7 +16441,7 @@ function $RootScopeProvider() {
     function flushApplyAsync() {
       while (applyAsyncQueue.length) {
         try {
-          applyAsyncQueue.shift()();
+          applyAsyncQueue.shift()();;
         } catch (e) {
           $exceptionHandler(e);
         }

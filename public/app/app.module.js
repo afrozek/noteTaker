@@ -12,7 +12,8 @@ angular
     	'members',
     	'notes',
         'budget',
-        'chart.js'
+        'chart.js',
+        'notify'
     ])
 
 
@@ -69,5 +70,5 @@ angular
 
 
 
-})() //end iffe
+})();; //end iffe
 

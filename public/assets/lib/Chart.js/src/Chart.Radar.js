@@ -213,7 +213,7 @@
 					}
 				});
 				return totalDataArray;
-			})();
+			})();;
 
 
 			var scaleSizes = (this.options.scaleOverride) ?

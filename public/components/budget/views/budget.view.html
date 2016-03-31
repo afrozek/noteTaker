@@ -5,7 +5,7 @@
 
 <!-- column  -->
    <div class="column">
-    <h2>Input Data</h2>
+    <h2>.</h2>
 
     <div id="income" class="card">
       <h3>Income</h3>
@@ -43,7 +43,7 @@
      <div class="newItem" ng-show="b.editing">
 
        <div class="input-group">
-        <input type="number" class="form-control" ng-model="newBillName" placeholder="New Bill Name">
+        <input type="text" class="form-control" ng-model="newBillName" placeholder="New Bill Name">
         <span class="input-group-btn">
           <button class="btn btn-success" type="button"  ng-click="addNewBill()">Add</button>
         </span>
@@ -60,7 +60,7 @@
    </div> 
    <!-- column  -->
    <div class="column">
-    <h2>Input Data</h2>
+    <h2>.</h2>
 
     <div id="monthlyOverview" class="card">
       <h3>Monthly Overview</h3>
@@ -110,7 +110,7 @@
 
    <!-- column  -->
    <div class="column">
-    <h2>Input Data</h2>
+    <h2></h2>
 
   <!--   <div class="card">
       <h3>Income</h3>
@@ -171,7 +171,34 @@
       {{bills}}
     </div> -->
 
-   </div> 
+    <div id="purchases" class="card">
+      <h3>Purchases</h3>
+
+      <div class="newBudgetItem">
+        <p class="centerText padding10">
+          <i class="fa fa-plus-square-o"></i>
+          add new item 
+        </p>
+            <div class="col-sm-8 clearLeftPadding">
+              <input type="text" class="form-control" ng-model="newPurchaseItemName" placeholder="New Purchase Item Name">
+            </div>   
+            <div class="col-sm-4 clearPadding">
+              <input type="number" class="form-control" ng-model="newPurchaseItemCost" placeholder="Price">
+            </div>      
+          <label for="sel1">Select Budget Category:</label>
+          <select class="form-control" id="sel1">
+            <option ng-repeat="item in budgetItems ">{{item.name}}</option>
+
+          </select>
+          <button class="btn btn-block btn-success" ng-click="addPurchaseItem">Add</button>
+
+     </div> 
+     <!-- end add -->
+
+    </div>
+
+   </div>  
+   <!-- end column -->
 
 
 

@@ -297,7 +297,7 @@
 			return function(){
 				return "chart-" + id++;
 			};
-		})(),
+		})();,
 		warn = helpers.warn = function(str){
 			//Method for warning of errors
 			if (window.console && typeof window.console.warn == "function") console.warn(str);
@@ -673,7 +673,7 @@
 				function(callback) {
 					return window.setTimeout(callback, 1000 / 60);
 				};
-		})(),
+		})();,
 		cancelAnimFrame = helpers.cancelAnimFrame = (function(){
 			return window.cancelAnimationFrame ||
 				window.webkitCancelAnimationFrame ||
@@ -683,7 +683,7 @@
 				function(callback) {
 					return window.clearTimeout(callback, 1000 / 60);
 				};
-		})(),
+		})();,
 		animationLoop = helpers.animationLoop = function(callback,totalSteps,easingString,onProgress,onComplete,chartInstance){
 
 			var currentStep = 0,
@@ -2000,7 +2000,7 @@
 				});
 			}, 50);
 		};
-	})());
+	})(););
 
 
 	if (amd) {

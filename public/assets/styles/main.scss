@@ -1,0 +1,620 @@
+html{
+	height: 100%;
+}
+
+body{
+	/*font-family: "jura","Helvetica","Arial","Sans-Serif";!background:url('../images/mainBg.png');*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-top: 50px;
+	height: 100%;
+	background: #E0E0E0;
+	background: url("http://www.egg-tooth.com/wp-content/uploads/2014/01/clean-white-polygon-backgrounds-7.jpg");
+	background-size: 100%;
+}
+
+/*helpers*/
+
+.clearPadding{
+	padding: 0;
+}
+
+.clearLeftPadding{
+	padding-left: 0;
+}
+
+.clearRightPadding{
+	padding-right: 0;
+}
+
+.clearMargin{
+	margin: 0;
+}
+
+.centerText{
+	text-align: center;
+} 
+
+.centerDiv{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fullHeight{
+	height: 100%;
+	/* overflow: auto; */
+}
+
+.fullWidth{
+	width: 100%;
+}
+
+.floatLeft{
+	float: left;
+}
+
+.floatRight{
+	float: right;
+}
+
+
+.outline{
+	outline: 1px solid white !important;
+}
+
+.centerText{
+	text-align: center;
+}
+
+.overflow{
+	overflow: auto;
+}
+
+.padding5{
+	padding: 5px;
+}
+
+.padding10{
+	padding: 10px;
+}
+/*colors*/
+
+.softBlue{
+	background: #49AAEF;
+}
+
+.blackGradient{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c4c4c+0,474747+25,2c2c2c+72 */
+	background: rgb(76,76,76); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(76,76,76,1) 0%, rgba(71,71,71,1) 25%, rgba(44,44,44,1) 72%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(71,71,71,1) 25%,rgba(44,44,44,1) 72%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(76,76,76,1) 0%,rgba(71,71,71,1) 25%,rgba(44,44,44,1) 72%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#2c2c2c',GradientType=0 ); /* IE6-9 */
+
+}
+
+.silverGradient{
+	background: white; /*fallback*/
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d8d8d8+100 */
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(216,216,216,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(216,216,216,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(216,216,216,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d8d8d8',GradientType=0 ); /* IE6-9 */
+
+}
+
+div.notify{
+	background: gray;
+	position: fixed;
+	z-index: 99;
+}
+
+/*notes*/
+.notes{
+	//background: #CECECE;
+}
+
+.notes .header{
+	display: none;
+	background: #72C5FF;
+	background: url("http://cdn.pcwallart.com/images/polygon-wallpaper-1.jpg");
+	background-size: 100%;
+	background-position-y: 664px;
+	box-shadow: 0px -4px 6px 5px;
+}
+
+.header {}
+
+.notes .title{
+	font-weight: 100;
+	letter-spacing: 2px;
+	padding: 20px;
+	color: #d9edf7;
+}
+
+.notesContainer{
+
+}
+
+.noteContainer{
+	padding: 10px;
+	position: relative;
+	background: none;
+	border: none;
+}
+
+.note{
+	background: white;
+	padding: 10px;
+	border-radius: 15px;
+	border: 1px solid #5AB6F3;
+	border-bottom: 7px solid #5AB6F3;
+	box-shadow: 0px 2px 10px -3px;
+}
+
+.noteTitle{
+	font-weight: 200;
+	margin: 2px;
+	/* background: #76FFB9; */
+	padding: 7px 10px 7px 20px;
+	/* border-radius: 2px; */
+	border-bottom: 1px solid #E5E5E5;
+	background: #5AB6F3;
+	border-radius: 3px;
+	color: white;
+	min-height: 41px;
+}
+
+.noteBody{
+
+}
+
+ul.itemsList{
+	padding: 0px;
+	margin: 0;
+	margin-left: 2px;
+	min-height: 50px;
+	}
+
+
+li.noteItem{
+	min-height: 44px;
+	list-style: none;
+	padding: 10px;
+	padding-left: 20px;
+	/* border: 0; */
+	border-radius: 2px;
+	background: #F4F2F2;
+	margin: 5px 2px 5px 0px;
+	font-size: 16px;
+	/* border-color: blue; */
+}
+
+.notesNav{
+	overflow: auto;
+	background: white;
+	width: 100%;
+	padding: 12px 17px 12px 17px;
+	/* margin-top: 14px; */
+	margin: 10px;
+	margin-top: 22px;
+	/* border-radius: 5px; */
+	/* box-shadow: 0px 0px 6px -3px; */
+	/* border-top: 4px solid #5AB6F3; */
+	/* border-bottom: 4px solid #5AB6F3; */
+	border-radius: 10px;
+	border: 1px solid #5AB6F3;
+	border-bottom: 4px solid #5AB6F3;
+	box-shadow: 0px 2px 10px -3px;
+}
+
+.saveChanges{
+	margin-right: 10px;
+}
+
+.saveChanges button{
+	background: #5AB6F3;
+	color: white;
+	border: none;
+}
+
+.saveChanges button:hover{
+	background: #2681B3;
+}
+
+.addNote{
+	width: 400px;
+}
+
+.addNote button{
+	color: gray;
+}
+
+button.addItem{
+	border: 1px solid #5AB6F3;
+	border-radius: 2px;
+	padding: 10px;
+	color: #FFFFFF;
+	margin: 1px;
+	width: 100%;
+	background: #5AB6F3;
+}
+
+button.addItem:hover{
+	background: #277FB1;
+}
+
+input.addItem{
+	border: 1px solid #5AB6F3;
+	border-radius: 2px;
+	padding: 10px;
+	color: #000000;
+	margin: 1px;
+	width: 100%;
+	background: none;
+}
+
+.deleteNote{
+	color: white;
+}
+
+.deleteNote:hover{
+	color: gray;
+}
+
+.deleteItem{
+	color: #2F7EAE;
+}
+
+.deleteItem:hover{
+	color: gray;
+}
+
+#budgetPage{
+	background: whitesmoke;
+	/* font-family: helvetica; */
+	/* font-size: 80%; */
+}
+
+#budgetPage .column{
+	width: 33.33%;
+	height: 100%;
+	float:left;
+	overflow: auto;
+	background: #DEDEDE;
+}
+
+
+#budgetPage h2{
+	background: #F4F760;
+	color: white;
+	margin: 0;
+	font-weight: 300;
+	/* text-align: center; */
+	padding: 7px;
+	font-size: 1.4em;
+	position: fixed;
+	width: 100%;
+	z-index: 99;
+}
+
+#budgetPage .box{
+	background: white;
+}
+
+#budgetPage .card{
+	/* padding-top: 12px; */
+	background: white;
+	margin: 10px;
+	position: relative;
+	z-index: 97;
+	padding: 10px;
+	overflow: auto;
+	box-shadow: 0px 1px 3px -2px gray;
+	/* margin-top: 47px; */
+	}
+
+
+
+#budgetPage .card h3{
+	margin: 0;
+	padding: 7px;
+	font-size: 1.3em;
+	color: #4E4E4E;
+	margin-bottom: 10px;
+	/* border-bottom: 1px solid gray; */
+	/* padding-bottom: 4px; */
+	background: #EAEAEA;
+	text-align: center;
+	border-radius: 4px;
+}
+
+#budgetPage .card h4{
+	margin: 0;
+	/* padding: 5px; */
+	font-size: 1.2em;
+	color: #4E4E4E;
+	/* text-align: center; */
+}
+
+#budgetPage .card p{
+	font-size: 1.2em;
+	margin: 0;
+	/* padding: 5px; */
+	color: gray;
+	/* text-align: center; */
+}
+
+#budgetPage .column:nth-child(2) .card{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+
+
+#budgetPage .card .item{overflow: auto;position: relative;}
+
+#budgetPage .card .item p{
+	float: left;
+	position: relative;
+	bottom: -12px;
+}
+
+#budgetPage .card .item .number{float: right;font-size: 1.8em;color: #59DEDD;}
+
+#budgetPage .card ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+
+}
+
+#budgetPage #bills ul li{
+	overflow-x: hidden;
+	overflow-y: auto;
+	/* margin-bottom: 5px; */
+	padding: 6px;
+	/* background: red; */
+}
+
+#budgetPage #income ul li{
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0;
+}
+
+
+#budgetPage #income ul li:before{
+	position: relative;
+	top: 12px;
+	float: left;
+	width: 0;
+	white-space: nowrap;
+	color: gray;
+	content:
+	". . . . . . . . . . . . . . . . . . . . "
+	". . . . . . . . . . . . . . . . . . . . "
+	". . . . . . . . . . . . . . . . . . . . "
+	". . . . . . . . . . . . . . . . . . . . ";
+}
+
+#budgetPage #bills ul li:before{
+	position: relative;
+	float: left;
+	width: 0;
+	white-space: nowrap;
+	color: gray;
+	content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+}
+
+#budgetPage #bills span + span {
+	padding-left: 4px;
+	position: relative;
+	z-index: 98;
+	float: right;
+	color: #59DEDD;
+	background: whitesmoke;
+	color: red;
+	font-size: 1.2em;
+}
+
+#budgetPage #income span + span {
+	position: relative;
+	z-index: 98;
+	float: right;
+	font-size: 1.9em;
+	color: #59DEDD;
+	background: white;
+}
+
+#budgetPage span.title {
+	position: relative;	
+	background: white;
+	color: gray;
+	padding-right: 5px;
+	font-size: 1.2em;
+}
+
+#budgetPage  #income span.title {
+	position: relative;
+	top: 12px;
+	background: whitesmoke;
+	color: gray;
+	padding-right: 5px;
+}
+
+#budgetPage .column .card:first-of-type{
+	margin-top: 45px;
+}
+
+#budgetPage .column .card .budgetItem{
+	padding: 5px;
+	/* background: gray; */
+	margin-top: 5px;
+	border-bottom: 1px solid #D6D3D3;
+}
+
+
+
+
+#budgetPage #income span.editField{
+
+}
+
+#budgetPage #income span.editField input{width: 100px;font-size: 15px;position: relative;bottom: 6px;text-align: center;/* border: 0; *//* border-radius: 3px; *//* background: gray; */}
+
+#budgetPage #income span.editField i {
+	color: #58E458;
+	font-size: 24px;
+	/* line-height: 24px; */
+	position: relative;
+	bottom: 2px;
+	/* left: -34px; */
+}
+
+#budgetPage #bills input.editField{width: 100px;font-size: 15px;position: relative;bottom: 6px;text-align: center;/* border: 0; *//* border-radius: 3px; *//* background: gray; */}
+
+#budgetPage #bills .newItem button{
+
+}
+
+#budgetPage #monthlyBudget{
+
+}
+
+#budgetPage #monthlyBudget i.edit{
+	display: none;
+}
+
+#budgetPage #monthlyBudget .budgetItem:hover  i.edit{
+	display: inline-block;
+}
+
+#budgetPage #monthlyBudget .budgetItem input.editBudgetItem  {
+	width: 50px;
+}
+
+
+
+#budgetPage #monthlyBudget  .newBudgetItem{
+	height: 30px;
+	overflow: hidden;
+	transition: .4s;
+}
+
+#budgetPage #monthlyBudget  .newBudgetItem:hover{
+	transition: .4s;
+	height: 110px;
+}
+
+#budgetPage #monthlyBudget  .newBudgetItem:hover p{
+	transition: .4s;
+	position: relative;
+	margin-top: -30px;
+	visibility: hidden;
+}
+
+
+#budgetPage #purchases  .newBudgetItem{
+	height: 30px;
+	overflow: hidden;
+	transition: .4s;
+}
+
+#budgetPage #purchases  .newBudgetItem:hover{
+	transition: .4s;
+	height: 165px;
+}
+
+#budgetPage #purchases  .newBudgetItem:hover p{
+	transition: .4s;
+	position: relative;
+	margin-top: -30px;
+	visibility: hidden;
+}
+
+#budgetPage #monthlyOverview{
+
+}
+
+#budgetPage p.mdNum{
+	font-size: 2.5em;
+}
+
+#budgetPage p.lgNum{
+	font-size: 2.9em;
+	
+}
+
+#budgetPage p.orangeFont{
+	color: #E49171;
+}
+
+#budgetPage p.blueFont{
+	color: #59DEDD;
+}
+
+/*#budgetPage #monthlyOverview .col-md-6{padding: 10px 0px;text-align: center;}
+*/
+
+#budgetPage #monthlyOverview div[class*="col-md"] {padding: 10px 0px; text-align: center; }
+
+
+
+.check{
+	color: #58E458;
+}
+
+.delete{
+	color: red;
+}
+
+/*transitions*/
+.ui-view-container {
+  position: relative;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform:scale3d(0.5, 0.5, 0.5);
+  -moz-transform:scale3d(0.5, 0.5, 0.5);
+  transform:scale3d(0.5, 0.5, 0.5);
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform:scale3d(1, 1, 1);
+  -moz-transform:scale3d(1, 1, 1);
+  transform:scale3d(1, 1, 1);
+}
+
+[ui-view].ng-leave {
+  opacity: 1; 
+  -webkit-transform:translate3d(0, 0, 0);
+  -moz-transform:translate3d(0, 0, 0);
+  transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+  -webkit-transform:translate3d(100px, 0, 0);
+  -moz-transform:translate3d(100px, 0, 0);
+  transform:translate3d(100px, 0, 0);
+}
+
+/*content*/
+

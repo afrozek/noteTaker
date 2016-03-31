@@ -12,8 +12,7 @@
 	
 		// $scope.Math = window.Math;
 
-		 $scope.labels = ["Bills", "Budget", "Remaining"];
-  			$scope.data = [300, 500, 200];
+		    
 
 
   			// income
@@ -47,7 +46,7 @@
   			//budget items
   			$scope.budgetItems = [];
   			$scope.budgetItems = [
-  				{name: "eat out", budget: 100, spent: 30},
+  				{name: "eat out", budget: 100, spent: 30 },
   				{name: "clothing", budget: 200, spent: 90}
   			]
 
@@ -55,6 +54,13 @@
   				$scope.budgetItems.push({name: $scope.newBudgetItemName, budget: 0, spent: 0 })
   				$scope.newBudgetItemName = "";
   			}
+
+        $scope.purchases = []
+        $scope.purchases = [{category: "eat out"}]
+
+        $scope.addPurchaseItem = function(){
+
+        }
 
 
         $scope.monthlyOverview = {};
@@ -116,11 +122,17 @@
         $scope.calculateBudgetSpentTotal();
         $scope.calculateTotalExpenditure();
 
+        $scope.labels = ["Bills", "Budget", "Remaining"];
+        $scope.data = [$scope.monthlyOverview.billsTotal,
+                       $scope.monthlyOverview.budgetTotal,
+                       $scope.income.monthly - $scope.monthlyOverview.totalEstimatedExpenditure];
+
+
 
 
 
 	}
 
-})()
+})();
 
 

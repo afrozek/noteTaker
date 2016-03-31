@@ -28,7 +28,7 @@ define([
 	input.value = "t";
 	input.type = "radio";
 	support.radioValue = input.value === "t";
-})();
+})();;
 
 return support;
 
