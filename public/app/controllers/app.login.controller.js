@@ -20,7 +20,7 @@
 	    ////////////
 
 	    function login() {
-	    	authService.login(vm.user,'app.members')
+	    	authService.login(vm.user,'app.notes')
 			vm.user = "";
 	    }
 

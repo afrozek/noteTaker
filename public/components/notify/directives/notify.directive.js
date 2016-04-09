@@ -8,35 +8,49 @@ angular
 function notify() {
 	return{
 		restrict: 'AE',
-		scope: {
-			// notes: "=",
-			// newItem: "="
-		},
-		replace: false,
-		transclude: false,
-		// templateUrl: "components/notes/views/note.directive.view.html",
-		template: "<h1>{{data}}</h1>",
+		template: '<li ng-repeat="item in notifyList">{{item}}</li>',
 		link: function(scope,element,attrs){
 
-			// scope.dogs = function(note){
-			// 	console.log(note)
-			// }   
+		var li = angular.element(element.children()[0])
+		console.log(li)
+		
+		animateDown = function() {
+			console.log('animating')
+            $(this).animate({
+                top: '+=99'
+            });
+        };
 
-		   console.log(element)
+        animateRight = function() {
+        	console.log('animating')
+            $(this).animate({
+            	
+                left: '+=50'
+            });
+        };
+
+        $(li).on('click', animateRight);
+       // $(li).on('click', animateRight);  
+		     		
+			
+			    
+
 
 
 		},
 		controller: function($scope,notifyService,$rootScope,$timeout){
 			console.log('notify directive')
-			$scope.data = null;			
+			
+			$scope.notifyList = ["dogs","cats"];			
 
 			 $rootScope.$on('pushed',function(event,message){
 			 	console.log("directive: receiving");
-			 	$scope.data = message.data;
-			 	$scope.$apply();
-			 	$timeout(function(){
-			 		$scope.data = "";
-			 	},3000)
+			 	$scope.notifyList.push(message.data);
+			 				 	$scope.$apply();
+			 	// $timeout(function(){
+			 	// 	$scope.data = null;
+			 	// },3000)
+
 			 })
 			
 		}

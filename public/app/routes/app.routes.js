@@ -63,7 +63,7 @@ angular.module('app')
 			controllerAs: 'notes',
 			data: {
 				permission: true,
-				permissionLevel: ['admin']
+				permissionLevel: ['admin','member']
 			}
 		})
 
