@@ -126,3 +126,45 @@ body {
   margin: 10px;
   border: 1px solid #439EF7;
   color: #439EF7; }
+
+/*notes page*/
+#notesPage .nav {
+  height: 100%;
+  float: left;
+  background: #439EF7; }
+
+#notesPage .nav ul {
+  list-style: none; }
+
+#notesPage .nav ul li {
+  position: relative; }
+
+#notesPage .nav ul li a {
+  padding: 15px;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  transition: .3s; }
+
+#notesPage .nav ul li:hover span {
+  opacity: 1;
+  top: 20px; }
+
+#notesPage .nav ul li:hover span:hover {
+  opacity: 0;
+  top: 10px; }
+
+#notesPage .nav ul li a:hover {
+  background: #3c8ede; }
+
+#notesPage .nav ul li span {
+  font-family: helvetica,'sans-serif';
+  padding: 1px 10px;
+  border-radius: 4px;
+  background: black;
+  position: absolute;
+  color: white;
+  left: 50px;
+  top: 10px;
+  opacity: 0;
+  transition: .3s; }

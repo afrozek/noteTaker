@@ -190,5 +190,62 @@ body{
 	color: $primaryColor
 }
 
+/*notes page*/
+#notesPage .nav{
+	height: 100%;
+	float: left;
+	background: $primaryColor;
+
+}
+
+#notesPage .nav ul{
+	list-style: none;
+}
+
+#notesPage .nav ul li{
+	position: relative;
+}
+
+#notesPage .nav ul li a{
+	padding: 15px;
+	color: white;
+	display: inline-block;
+	text-decoration: none;
+	transition: .3s;
+}
+
+#notesPage .nav ul li:hover span{
+	opacity: 1;
+	top: 20px;
+}
+
+
+#notesPage .nav ul li:hover span:hover{
+	opacity: 0;
+	top: 10px;
+}
+
+#notesPage .nav ul li a:hover {
+	background: $primaryColor*.9;
+}
+
+#notesPage .nav ul li  span{
+	font-family: helvetica,'sans-serif';
+    padding: 1px 10px;
+    border-radius: 4px;
+    background: black;
+    position: absolute;
+    color: white;
+    left: 50px;
+    top: 10px;
+    opacity: 0;
+    transition: .3s;
+
+}
+
+
+
+
+
 
 

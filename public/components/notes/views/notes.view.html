@@ -1,39 +1,27 @@
 
-  <div class="container-fluid  fullHeight clearPadding notes">
-  	
-  	<div class="header">
-  		<h1 class="title clearMargin centerText">Notes</h1>
-  	</div>
+  <div id="notesPage" class="container-fluid  fullHeight clearPadding hasNav">
+  <div class="nav">
+    <ul class="clearPadding clearMargin">
+      <li>
+        <a href="" ui-sref="">
+          <i class="fa fa-home fa-2x"></i>
+        </a>
+        <span>home</span>
+      </li>
+       <li>
+        <a href="" ui-sref="">
+          <i class="fa fa-home fa-2x"></i>
+        </a>
+        <span>home</span>
+      </li>
 
 
-
-  	<div class="notesContainer container" >
-       
-      <!-- <p>{{notes.notes}}</p> -->
-     <!--  <p><button ng-click="notes.refreshBoard()"> get list</button></p>
-      <p><button ng-click="notes.getNotesList()"> get list</button></p>
-      <p><button ng-click="notes.saveNotes()"> save notes </button></p> -->
-     <div class="notesNav centerDiv">
-
-      <div class="saveChanges floatLeft" >
-        <button class="btn btn-success" ng-click="notes.saveNotes()"> <i class="fa fa-floppy-o fa-lg"></i> </button>
-      </div>
-
-      <div class="addNote">
-        <div class="input-group">
-        <input type="text" class="form-control" placeholder="New Note Title ..." ng-model="notes.newNote.title">
-          <span class="input-group-btn">
-            <button class="btn btn-default" ng-click="notes.addNote()"type="button">add</button>
-          </span>
-        </div><!-- /input-group -->
-      </div>
-
-     </div>
-
-
-    
+    </ul>
+  </div>	
+  
+   <!--  
       <note-cards notes="notes.notes">
-      </note-cards>
+      </note-cards> -->
 
     
 
