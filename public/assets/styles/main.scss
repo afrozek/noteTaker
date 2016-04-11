@@ -20,6 +20,25 @@ body{
 	font-family: $primaryFont;
 }
 
+::-webkit-scrollbar {
+	border-radius: 0;
+	width: .3em;
+}
+ 
+::-webkit-scrollbar-track {
+	background: #ccc;
+
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+
+/*::-webkit-scrollbar { 
+    display: none; 
+}*/
+
+
 /*helpers*/
 
 .clearPadding{
@@ -191,10 +210,16 @@ body{
 }
 
 /*notes page*/
+#notesPage{
+	overflow: hidden;
+}
+
 #notesPage .nav{
 	height: 100%;
 	float: left;
 	background: $primaryColor;
+	position: fixed;
+	z-index: 99;
 
 }
 
@@ -242,6 +267,58 @@ body{
     transition: .3s;
 
 }
+
+#notesPage #body{
+	padding: 0px 0px 0px 58px;
+	margin: 0;
+}
+
+
+
+#notesPage #list{
+	background: whitesmoke;
+	padding: 0;
+	height: 100%;
+	overflow-y: hidden;
+}
+
+#notesPage #list ul{
+	height: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+}
+
+#notesPage #list ul li{
+	padding: 10px 0px;
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+}
+
+/*#notesPage #list ul li:last-child{
+	border-bottom: none;
+}*/
+
+
+#notesPage #list ul li h3{
+	margin: 0;
+	padding: 0px 20px;
+	font-size: 1.2em;
+	font-weight: 400;
+}
+
+#notesPage #list ul li p{
+	margin: 0;
+	padding: 0px 20px;
+	font-size: .9em;
+}
+
+#notesPage #canvas{
+	background: whitesmoke;
+}
+
+
 
 
 
