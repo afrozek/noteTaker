@@ -47,7 +47,7 @@
     <div id="list" class="col-md-3 fullHeight">
        <input id="search" type="text" placeholder="search" ng-model="searchNotes">
       <ul>
-        <li ng-repeat="note in notes.allNotes | filter:searchNotes">
+        <li ng-repeat="note in notes.allNotes | filter:searchNotes" ng-click="notes.activate(note)">
           <h3>{{note.title}}</h3>
           <p>created: Yesterday at 12pm</p>
           <p>last opened: Today at 10am</p>
@@ -62,19 +62,16 @@
       <div id="tabs">
         <ul>
           <h5>active notes</h5>
-          <li>
-            <span>tab2</span>
-            <i class="fa fa-close"></i>
+          <li ng-repeat="note in notes.activeNotes " >
+            <a href="#notes#{{note.title}}">{{note.title}}</a>
+            <i class="fa fa-close" ng-click="notes.closeTab($index)"></i>
           </li>
-           <li>
-            <span>tab1</span>
-            <i class="fa fa-close"></i>
-          </li>
+         
         </ul>
       </div>
     </div>
     <div class="notesContainer">
-    <div class="note" ng-repeat="note in notes.allNotes">
+    <div class="note" ng-repeat="note in notes.activeNotes" id="{{note.title}}">
       <div class="header cf">
         <h2>
           <i class="fa fa-file-text"></i>

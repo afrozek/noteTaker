@@ -292,8 +292,10 @@ input#search:focus {
 #notesPage #canvas #header #tabs ul li:hover {
   background: #224f7c; }
 
-#notesPage #canvas #header #tabs ul li span {
-  padding: 8px 0px 8px 10px; }
+#notesPage #canvas #header #tabs ul li a {
+  padding: 8px 0px 8px 10px;
+  text-decoration: none;
+  color: white; }
 
 #notesPage #canvas #header #tabs ul li i {
   padding: 15px 8px; }

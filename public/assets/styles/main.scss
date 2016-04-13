@@ -400,8 +400,10 @@ input#search:focus{
 		background: $primaryColor*.5;
 }
 
-#notesPage #canvas #header #tabs ul li span{
+#notesPage #canvas #header #tabs ul li a{
 	padding: 8px 0px 8px 10px;
+	text-decoration: none;
+	color: white;
 }
 
 #notesPage #canvas #header #tabs ul li i{
