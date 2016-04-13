@@ -1,5 +1,5 @@
 /*variables*/
-$primaryColor: #439EF7;
+$primaryColor: #1C7FDF;
 $primaryFont: "Roboto Slab","Times","Sans-Serif";
 $navLinks: white;
 
@@ -236,7 +236,7 @@ body{
 #notesPage .nav{
 	height: 100%;
 	float: left;
-	background: $primaryColor;
+	background: $primaryColor*.9;
 	position: fixed;
 	z-index: 99;
 
@@ -270,7 +270,7 @@ body{
 }
 
 #notesPage .nav ul li a:hover {
-	background: $primaryColor*.9;
+	background: $primaryColor*.5;
 }
 
 
@@ -340,7 +340,7 @@ input#search:focus{
 }*/
 
 #notesPage #list ul li:hover{
-	background: $primaryColor*.9;
+	background: $primaryColor*.5;
 	color: white;
 }
 
@@ -370,6 +370,7 @@ input#search:focus{
     position: fixed;
     width: 100%;
     z-index: 99;
+    min-height: 44px;
 }
 
 #notesPage #canvas #header #tabs{
@@ -380,7 +381,7 @@ input#search:focus{
 	display: inline-block;
 	color: white;
 	margin: 0px;
-	padding: 5px 10px;
+	padding: 14px 10px;
 }
 
 
@@ -393,7 +394,7 @@ input#search:focus{
 #notesPage #canvas #header #tabs ul li{
 	display: inline-block;
 	color: white;
-	background: $primaryColor*1.1;
+	background: $primaryColor*.8;
 }
 
 #notesPage #canvas #header #tabs ul li:hover{
@@ -424,7 +425,7 @@ input#search:focus{
 
 
 #notesPage #canvas .note .header{
-	background: $primaryColor;
+	background: $primaryColor*.9;
 }
 
 #notesPage #canvas .note .header h2{
@@ -451,7 +452,7 @@ input#search:focus{
 }
 
 #notesPage #canvas .note .header ul.options li:hover{
-   background: $primaryColor*.9;
+   background: $primaryColor*.5;
 }
 
 #notesPage #canvas .note textarea{

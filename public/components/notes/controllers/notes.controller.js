@@ -55,12 +55,35 @@
 	    ////////////
 
 	    function activate(note) {
-	    	vm.activeNotes.push(note);
-	    	console.log(vm.activeNotes)
-	    }
+	    	var permissionToActivate = true;
+    		// checks if tab already open
+    		if(vm.activeNotes.length > 0 && vm.activeNotes.length !== 4 ){
+    			console.log('looping')
+	    		angular.forEach(vm.activeNotes, function(value) {
+				  if(value.title.toString() == note.title.toString()){
+				  	permissionToActivate = false;
+				  	toastr.error("Whoops! Looks like this note is already open")
+				  }
+				});//end foreach
+			}
+		    if(vm.activeNotes.length == 4){
+		    		console.log("checking max");
+		    		permissionToActivate = false;
+		    		toastr.error("Whoops! Looks like you have reached the max number of tabs(4)")
+		    }
+		
+	    	if(permissionToActivate == true){
+			  	console.log("else pushing");
+			  	vm.activeNotes.push(note);
+				console.log(vm.activeNotes)
+			} 
+	    	
+	    } //end function activate
 
 	    function closeTab(index) {
 	      vm.activeNotes.splice(index,1);
+	      console.log(vm.activeNotes)
+
 	    }
 
 	    function refresh() {

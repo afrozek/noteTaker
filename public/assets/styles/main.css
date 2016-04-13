@@ -116,7 +116,7 @@ body {
   font-size: 2em; }
 
 .navbar-inverse {
-  background: #439EF7;
+  background: #1C7FDF;
   border: none; }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -126,7 +126,7 @@ body {
   color: white; }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
-  color: #439EF7;
+  color: #1C7FDF;
   background: white; }
 
 /*homepage*/
@@ -149,13 +149,13 @@ body {
   margin: 0;
   margin-top: 10px;
   color: white;
-  background: #439EF7;
+  background: #1C7FDF;
   min-height: 100px; }
 
 #homePage .features .col-md-4 div:first-child {
   margin: 10px;
-  border: 1px solid #439EF7;
-  color: #439EF7; }
+  border: 1px solid #1C7FDF;
+  color: #1C7FDF; }
 
 /*notes page*/
 #notesPage {
@@ -164,7 +164,7 @@ body {
 #notesPage .nav {
   height: 100%;
   float: left;
-  background: #439EF7;
+  background: #1972c9;
   position: fixed;
   z-index: 99; }
 
@@ -190,7 +190,7 @@ body {
   top: 10px; }
 
 #notesPage .nav ul li a:hover {
-  background: #3c8ede; }
+  background: #0e4070; }
 
 #notesPage .nav ul li span {
   font-family: helvetica,'sans-serif';
@@ -244,7 +244,7 @@ input#search:focus {
 	border-bottom: none;
 }*/
 #notesPage #list ul li:hover {
-  background: #3c8ede;
+  background: #0e4070;
   color: white; }
 
 #notesPage #list ul li h3 {
@@ -265,10 +265,11 @@ input#search:focus {
   overflow-y: scroll; }
 
 #notesPage #canvas #header {
-  background: #3c8ede;
+  background: #1972c9;
   position: fixed;
   width: 100%;
-  z-index: 99; }
+  z-index: 99;
+  min-height: 44px; }
 
 #notesPage #canvas #header #tabs {
   background: none; }
@@ -277,7 +278,7 @@ input#search:focus {
   display: inline-block;
   color: white;
   margin: 0px;
-  padding: 5px 10px; }
+  padding: 14px 10px; }
 
 #notesPage #canvas #header #tabs ul {
   list-style: none;
@@ -287,10 +288,10 @@ input#search:focus {
 #notesPage #canvas #header #tabs ul li {
   display: inline-block;
   color: white;
-  background: #4aaeff; }
+  background: #1666b2; }
 
 #notesPage #canvas #header #tabs ul li:hover {
-  background: #224f7c; }
+  background: #0e4070; }
 
 #notesPage #canvas #header #tabs ul li a {
   padding: 8px 0px 8px 10px;
@@ -310,7 +311,7 @@ input#search:focus {
   margin: 10px; }
 
 #notesPage #canvas .note .header {
-  background: #439EF7; }
+  background: #1972c9; }
 
 #notesPage #canvas .note .header h2 {
   margin: 0;
@@ -333,7 +334,7 @@ input#search:focus {
   padding: 5px 10px; }
 
 #notesPage #canvas .note .header ul.options li:hover {
-  background: #3c8ede; }
+  background: #0e4070; }
 
 #notesPage #canvas .note textarea {
   min-height: 400px; }
