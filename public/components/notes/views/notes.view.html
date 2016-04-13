@@ -14,28 +14,28 @@
         <a href="" >
           <i class="fa fa-bell fa-2x"></i>
         </a>
-        <span>home</span>
+        <span>notifications</span>
       </li>
 
        <li>
         <a href="" >
           <i class="fa fa-file-text fa-2x"></i>
         </a>
-        <span>home</span>
+        <span>notes</span>
       </li>
 
        <li>
         <a href="" >
           <i class="fa fa-plus-circle fa-2x"></i>
         </a>
-        <span>home</span>
+        <span>new note</span>
       </li>
 
        <li>
         <a href="" >
           <i class="fa fa-search fa-2x"></i>
         </a>
-        <span>home</span>
+        <span>search notes</span>
       </li>
 
 
@@ -45,9 +45,9 @@
   <div id="body" class="row fullHeight">
 
     <div id="list" class="col-md-3 fullHeight">
-      <!-- <h2>search</h2> -->
+       <input id="search" type="text" placeholder="search">
       <ul>
-        <li ng-repeat="note in notes.allNotes">
+        <li ng-repeat="note in notes.allNotes track by $index">
           <h3>{{note.title}}</h3>
           <p>created: Yesterday at 12pm</p>
           <p>last opened: Today at 10am</p>
@@ -81,6 +81,10 @@
           {{note.title}}
         </h2>
           <ul class="options toolTip">
+             <li >
+              <i class="fa  fa-star-o"></i>
+              <span>favorite</span>
+            </li>
             <li >
               <i class="fa  fa-share-alt"></i>
               <span>share</span>

@@ -215,6 +215,18 @@ body {
   height: 100%;
   overflow-y: hidden; }
 
+#notesPage #list #search {
+  display: block;
+  width: 100%;
+  font-size: 1.3em;
+  background: white;
+  border: none;
+  padding: 10px;
+  color: gray; }
+
+input#search:focus {
+  outline: none; }
+
 #notesPage #list ul {
   height: 100%;
   list-style: none;
@@ -284,13 +296,13 @@ body {
   padding: 8px 0px 8px 10px; }
 
 #notesPage #canvas #header #tabs ul li i {
-  padding: 8px 8px; }
+  padding: 15px 8px; }
 
 #notesPage #canvas #header #tabs ul li i:hover {
   color: red; }
 
 #notesPage #canvas .notesContainer {
-  padding-top: 30px; }
+  padding-top: 44px; }
 
 #notesPage #canvas .note {
   margin: 10px; }
