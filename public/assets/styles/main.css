@@ -7,7 +7,7 @@ body {
 
 ::-webkit-scrollbar {
   border-radius: 0;
-  width: .3em; }
+  width: .5em; }
 
 ::-webkit-scrollbar-track {
   background: #ccc; }
@@ -19,6 +19,23 @@ body {
     display: none; 
 }*/
 /*helpers*/
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after {
+  clear: both; }
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1; }
+
 .clearPadding {
   padding: 0; }
 
@@ -189,7 +206,8 @@ body {
 
 #notesPage #body {
   padding: 0px 0px 0px 58px;
-  margin: 0; }
+  margin: 0;
+  overflow-y: auto; }
 
 #notesPage #list {
   background: whitesmoke;
@@ -207,11 +225,16 @@ body {
 #notesPage #list ul li {
   padding: 10px 0px;
   margin: 0;
-  border-bottom: 1px solid #ccc; }
+  border-bottom: 1px solid #ccc;
+  transition: .3s; }
 
 /*#notesPage #list ul li:last-child{
 	border-bottom: none;
 }*/
+#notesPage #list ul li:hover {
+  background: #3c8ede;
+  color: white; }
+
 #notesPage #list ul li h3 {
   margin: 0;
   padding: 0px 20px;
@@ -224,4 +247,103 @@ body {
   font-size: .9em; }
 
 #notesPage #canvas {
-  background: whitesmoke; }
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+  overflow-y: scroll; }
+
+#notesPage #canvas #header {
+  background: #3c8ede;
+  position: fixed;
+  width: 100%;
+  z-index: 99; }
+
+#notesPage #canvas #header #tabs {
+  background: none; }
+
+#notesPage #canvas #header #tabs h5 {
+  display: inline-block;
+  color: white;
+  margin: 0px;
+  padding: 5px 10px; }
+
+#notesPage #canvas #header #tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+#notesPage #canvas #header #tabs ul li {
+  display: inline-block;
+  color: white;
+  background: #4aaeff; }
+
+#notesPage #canvas #header #tabs ul li span {
+  padding: 6px 0px 6px 10px; }
+
+#notesPage #canvas #header #tabs ul li i {
+  padding: 6px 6px; }
+
+#notesPage #canvas #header #tabs ul li i:hover {
+  background: #2f6fad; }
+
+#notesPage #canvas .notesContainer {
+  padding-top: 25px; }
+
+#notesPage #canvas .note {
+  margin: 10px; }
+
+#notesPage #canvas .note .header {
+  background: #439EF7; }
+
+#notesPage #canvas .note .header h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: white;
+  padding: 10px;
+  float: left; }
+
+#notesPage #canvas .note .header ul.options {
+  list-style: none;
+  margin: 0;
+  float: right;
+  margin-right: 5px; }
+
+#notesPage #canvas .note .header ul.options li {
+  display: inline-block;
+  color: white;
+  transition: .3s;
+  margin: 5px 0px;
+  padding: 5px 10px; }
+
+#notesPage #canvas .note .header ul.options li:hover {
+  background: #3c8ede; }
+
+#notesPage #canvas .note textarea {
+  min-height: 400px; }
+
+#notesPage #canvas .note #tinymce {
+  font-size: 1.2em; }
+
+ul.toolTip {
+  position: relative;
+  z-index: 99;
+  overflow: visible; }
+
+ul.toolTip li {
+  position: relative; }
+
+ul.toolTip li:hover span {
+  opacity: 1;
+  top: 40px; }
+
+ul.toolTip li span {
+  font-family: helvetica,'sans-serif';
+  padding: 1px 10px;
+  border-radius: 4px;
+  background: black;
+  position: absolute;
+  color: white;
+  top: 10px;
+  opacity: 0;
+  transition: .3s;
+  left: -35%; }

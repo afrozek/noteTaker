@@ -8,70 +8,44 @@
 	notesCtrl.$inject = ['notesService','$scope','$http','toastr']
 
 	function notesCtrl(notesService,$scope, $http, toastr) {
-
-		console.log("notes ctrl");
+		var vm = this;
+		console.log("notes ballsout");
 
 		//console.log( notesService.getNotes() )
 		
-	    var vm = this;
-
-	   // vm.notes = notesService.getNotes();
-	   vm.notes = notesService.getNotes().then(function(res){
-               vm.notes = res.data.notes.notes
-            })
-
-	   vm.saveNotes = function(){
-	   	notesService.saveNotes(vm.notes).then(function(res){
-               console.log(res)
-               if(res.data.success == true){
-               	toastr.success("Notes Saved")
-               }
-               else{
-               	toastr.error("sorry notes not saved")
-               }
-            })
-	   }
-	    //console.log(vm.notes[0].items[0])
-
-	    vm.getNotesList = function(){
-	    	
-	    	//$scope.$apply();
-	    	console.log("from controller")
-	    	console.log($scope.notes)
-	    	
-	    }
-
-	    vm.refreshBoard = function(){
-	    	$scope.$apply();
-	    	console.log("REFRESHING.............")
-	    }
-
-	    vm.newNote = {}
-	    vm.newNote.title = null;
-	    vm.newNote.items = []
-	    vm.addNote = function(){
-	    	var newNoteCopy = angular.copy(vm.newNote);
-	    	vm.newNote.title = "";
-	    	vm.notes.push(newNoteCopy)
-	    }
-
-
 	    
+	    $scope.note1 = "aldsjflkasdj";
+	    console.log($scope.note1);
+	  	$scope.tinymceOptions = {
+		    plugins: 'link image code',
+		    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | paste'
+		  };
 
-	    vm.gotoSession = gotoSession;
-	    vm.refresh = refresh;
-	    vm.search = search;
-	    vm.sessions = [];
-	    vm.title = 'notes';
+		$scope.title = "ratsts";
+		$scope.dogs ="froadsasdfadsgs"
+		vm.tinymceModel = 'Initial consdsdtent';
 
-	    vm.alertList = function(){
-	    	vm.list = []
-	    	angular.forEach(vm.notes, function(note) {
-			  //console.log(note.title);
-			  vm.list.push(note.title)
-			});
-			console.log(vm.list)
-	    }
+		vm.allNotes = [
+			{title:"gulp cheat sheet",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"},
+			{title:"javascript",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna m consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"}
+
+		]
+
+		vm.activeNotes = [];
+
+
+  $scope.getContent = function() {
+    console.log('Editor content:', $scope.tinymceModel);
+  };
+
+  $scope.setContent = function() {
+    $scope.tinymceModel = 'Time: ' + (new Date());
+  };
+
+  $scope.tinymceOptions = {
+    plugins: 'link image code',
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+  };
 
 
 

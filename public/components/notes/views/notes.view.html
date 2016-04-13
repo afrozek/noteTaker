@@ -1,38 +1,38 @@
 
-  <div id="notesPage" class="container-fluid  fullHeight clearPadding hasNav">
+  <div id="notesPage" class="container-fluid  fullHeight clearPadding hasNav" ng-controller="notesCtrl as notes">
 
   <div class="nav">
     <ul class="clearPadding clearMargin">
       <li>
-        <a href="" ui-sref="">
+        <a href="" >
           <i class="fa fa-home fa-2x"></i>
         </a>
         <span>home</span>
       </li>
 
        <li>
-        <a href="" ui-sref="">
+        <a href="" >
           <i class="fa fa-bell fa-2x"></i>
         </a>
         <span>home</span>
       </li>
 
        <li>
-        <a href="" ui-sref="">
+        <a href="" >
           <i class="fa fa-file-text fa-2x"></i>
         </a>
         <span>home</span>
       </li>
 
        <li>
-        <a href="" ui-sref="">
+        <a href="" >
           <i class="fa fa-plus-circle fa-2x"></i>
         </a>
         <span>home</span>
       </li>
 
        <li>
-        <a href="" ui-sref="">
+        <a href="" >
           <i class="fa fa-search fa-2x"></i>
         </a>
         <span>home</span>
@@ -47,113 +47,61 @@
     <div id="list" class="col-md-3 fullHeight">
       <!-- <h2>search</h2> -->
       <ul>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
+        <li ng-repeat="note in notes.allNotes">
+          <h3>{{note.title}}</h3>
           <p>created: Yesterday at 12pm</p>
           <p>last opened: Today at 10am</p>
         </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
-        <li>
-          <h3>Gulp Cheat Sheet</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
-        </li>
+       
 
       </ul>
     </div>
 
     <div id="canvas" class="col-md-9 fullHeight">
-        <h2>notes</h2>
+    <div id="header">
+      <div id="tabs">
+        <ul>
+          <h5>active notes</h5>
+          <li>
+            <span>tab2</span>
+            <i class="fa fa-close"></i>
+          </li>
+           <li>
+            <span>tab1</span>
+            <i class="fa fa-close"></i>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="notesContainer">
+    <div class="note" ng-repeat="note in notes.allNotes">
+      <div class="header cf">
+        <h2>
+          <i class="fa fa-file-text"></i>
+          {{note.title}}
+        </h2>
+          <ul class="options toolTip">
+            <li >
+              <i class="fa  fa-share-alt"></i>
+              <span>share</span>
+            </li>
+            <li>
+              <i class="fa fa-save"></i>
+              <span>save</span>
+            </li>
+            <li>
+              <i class="fa fa-close"></i>
+              <span>close</span>
+            </li>
+          </ul>
+      </div>
+      
+      <textarea ui-tinymce="tinymceOptions"  ng-model="note.content">
+      </textarea>
+    </div>
+    </div>
+
+    </div> <!-- end canvas -->
 
   </div>
  

@@ -13,7 +13,8 @@ angular
     	'notes',
         'budget',
         'chart.js',
-        'notify'
+        'notify',
+        'ui.tinymce'
     ])
 
 

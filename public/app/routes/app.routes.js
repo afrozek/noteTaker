@@ -60,7 +60,6 @@ angular.module('app')
 			url: '/notes',
 			templateUrl:'components/notes/views/notes.view.html',
 			controller: 'notesCtrl',
-			controllerAs: 'notes',
 			data: {
 				permission: true,
 				permissionLevel: ['admin','member']
