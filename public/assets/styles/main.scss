@@ -442,6 +442,20 @@ input#search:focus{
 	padding: 10px;
 }
 
+#notesPage #canvas .note i.edit{
+	opacity: 0;
+	transition: .3s;
+}
+
+
+#notesPage #canvas .note .header h2:hover i.edit{
+	opacity: 1;
+}
+
+#notesPage #canvas .note .header h2:hover {
+
+}
+
 .gridMode{
 	float: left !important;
 	width: 50% !important;
@@ -459,6 +473,11 @@ input#search:focus{
     padding: 10px;
     float: left;
 }
+
+#notesPage #canvas .note .header h2 input{
+	color: black;
+}
+
 
 #notesPage #canvas .note .header ul.options{
     list-style: none;

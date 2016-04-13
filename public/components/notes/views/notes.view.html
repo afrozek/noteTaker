@@ -75,8 +75,11 @@
     <div class="note" ng-repeat="note in notes.activeNotes" id="{{note.title}}" ng-class="{'gridMode': notes.gridMode == false }">
       <div class="header cf">
         <h2>
-          <i class="fa fa-file-text"></i>
-          {{note.title}}
+          <!-- <i class="fa fa-file-text"></i> -->
+          <span ng-hide="editTitle">{{note.title}}</span>
+          <input type="text" ng-model="note.title" ng-show="editTitle">
+          <i class="fa fa-pencil edit" ng-show="!editTitle" ng-click="editTitle = true"></i>
+          <i class="fa fa-check " ng-show="editTitle" ng-click="editTitle = false"></i>
         </h2>
           <ul class="options toolTip">
              <li >
