@@ -17,7 +17,7 @@
         <span>notifications</span>
       </li>
 
-       <li>
+       <li ng-click="notes.showList = true">
         <a href="" >
           <i class="fa fa-file-text fa-2x"></i>
         </a>
@@ -44,7 +44,8 @@
 
   <div id="body" class="row fullHeight">
 
-    <div id="list" class="col-md-3 fullHeight">
+    <div id="list" class="fullHeight" ng-class="{'hideList': notes.showList == false }">
+        <i class="fa fa-angle-left fa-2x floatRight padding10" ng-click="notes.showList = false"></i> 
        <input id="search" type="text" placeholder="search" ng-model="searchNotes">
       <ul>
         <li ng-repeat="note in notes.allNotes | filter:searchNotes" ng-click="notes.activate(note)">
@@ -57,7 +58,7 @@
       </ul>
     </div>
 
-    <div id="canvas" class="col-md-9 fullHeight">
+    <div id="canvas" class="fullHeight" ng-class="{'fullWidth': notes.showList == false }">
     <div id="header">
       <div id="tabs">
         <ul>
@@ -71,7 +72,7 @@
       </div>
     </div>
     <div class="notesContainer">
-    <div class="note" ng-repeat="note in notes.activeNotes" id="{{note.title}}">
+    <div class="note" ng-repeat="note in notes.activeNotes" id="{{note.title}}" ng-class="{'gridMode': notes.gridMode == false }">
       <div class="header cf">
         <h2>
           <i class="fa fa-file-text"></i>
@@ -93,6 +94,14 @@
             <li>
               <i class="fa fa-tags"></i>
               <span>tags</span>
+            </li>
+            <li ng-click="notes.gridMode = !notes.gridMode">
+              <i class="fa fa-th-large"></i>
+              <span>grid view</span>
+            </li>
+            <li ng-click="notes.showList = false; notes.gridMode = true">
+              <i class="fa fa-expand"></i>
+              <span>full-screen</span>
             </li>
             <li>
               <i class="fa fa-close"></i>

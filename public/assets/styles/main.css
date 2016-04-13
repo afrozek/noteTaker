@@ -60,7 +60,7 @@ body {
   /* overflow: auto; */ }
 
 .fullWidth {
-  width: 100%; }
+  width: 100% !important; }
 
 .floatLeft {
   float: left; }
@@ -213,7 +213,16 @@ body {
   background: whitesmoke;
   padding: 0;
   height: 100%;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  width: 25%;
+  box-sizing: border-box;
+  float: left;
+  opacity: 1;
+  transition: .3s;
+  position: relative; }
+
+.hideList {
+  margin-left: -25%; }
 
 #notesPage #list #search {
   display: block;
@@ -262,7 +271,9 @@ input#search:focus {
   margin: 0;
   padding: 0;
   background: whitesmoke;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  width: 75%;
+  float: left; }
 
 #notesPage #canvas #header {
   background: #1972c9;
@@ -308,7 +319,11 @@ input#search:focus {
   padding-top: 44px; }
 
 #notesPage #canvas .note {
-  margin: 10px; }
+  padding: 10px; }
+
+.gridMode {
+  float: left !important;
+  width: 50% !important; }
 
 #notesPage #canvas .note .header {
   background: #1972c9; }

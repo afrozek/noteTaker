@@ -91,7 +91,7 @@ body{
 }
 
 .fullWidth{
-	width: 100%;
+	width: 100% !important;
 }
 
 .floatLeft{
@@ -126,6 +126,8 @@ body{
 .paddingTopBottom{
 	padding: 20px 0px;
 }
+
+
 
 /*fontawsome helpers*/
 .fa-3x{
@@ -302,7 +304,22 @@ body{
 	padding: 0;
 	height: 100%;
 	overflow-y: hidden;
+	width: 25%;
+	box-sizing: border-box;
+	float: left;
+	opacity: 1;
+	transition: .3s;
+	position: relative;
 }
+
+.showList{
+
+}
+
+.hideList{
+	margin-left: -25%;
+}
+
 
 #notesPage #list #search{
 	display: block;
@@ -363,6 +380,8 @@ input#search:focus{
 	padding: 0;
 	background: whitesmoke;
 	overflow-y: scroll;
+	width: 75%;
+	float: left;
 }
 
 #notesPage #canvas #header{
@@ -420,7 +439,12 @@ input#search:focus{
 }
 
 #notesPage #canvas .note {
-	margin: 10px;
+	padding: 10px;
+}
+
+.gridMode{
+	float: left !important;
+	width: 50% !important;
 }
 
 

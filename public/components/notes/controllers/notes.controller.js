@@ -13,6 +13,8 @@
 
 		vm.activate = activate;
 		vm.closeTab = closeTab;
+		vm.showList = true;
+		vm.gridMode = true;
 
 		
 	    
