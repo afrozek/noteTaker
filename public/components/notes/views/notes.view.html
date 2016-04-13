@@ -45,9 +45,9 @@
   <div id="body" class="row fullHeight">
 
     <div id="list" class="col-md-3 fullHeight">
-       <input id="search" type="text" placeholder="search">
+       <input id="search" type="text" placeholder="search" ng-model="searchNotes">
       <ul>
-        <li ng-repeat="note in notes.allNotes track by $index">
+        <li ng-repeat="note in notes.allNotes | filter:searchNotes">
           <h3>{{note.title}}</h3>
           <p>created: Yesterday at 12pm</p>
           <p>last opened: Today at 10am</p>
