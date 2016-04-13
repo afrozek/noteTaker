@@ -24,7 +24,7 @@
         <span>notes</span>
       </li>
 
-       <li>
+       <li ng-click="notes.newNote()">
         <a href="" >
           <i class="fa fa-plus-circle fa-2x"></i>
         </a>
@@ -78,8 +78,9 @@
           <!-- <i class="fa fa-file-text"></i> -->
           <span ng-hide="editTitle">{{note.title}}</span>
           <input type="text" ng-model="note.title" ng-show="editTitle">
-          <i class="fa fa-pencil edit" ng-show="!editTitle" ng-click="editTitle = true"></i>
-          <i class="fa fa-check " ng-show="editTitle" ng-click="editTitle = false"></i>
+          <i class="fa fa-check " ng-click="editTitle = false" ng-show="editTitle" ></i>
+          <i class="fa fa-pencil edit" ng-click="editTitle = true" ng-show="!editTitle" ></i>
+
         </h2>
           <ul class="options toolTip">
              <li >

@@ -13,8 +13,10 @@
 
 		vm.activate = activate;
 		vm.closeTab = closeTab;
+		vm.newNote = newNote;
 		vm.showList = true;
 		vm.gridMode = true;
+
 
 		
 	    
@@ -86,6 +88,11 @@
 	      vm.activeNotes.splice(index,1);
 	      console.log(vm.activeNotes)
 
+	    }
+
+	    function newNote() {
+	    	vm.allNotes.push({title:"Untitled",content:""});
+	    	console.log(vm.allNotes);
 	    }
 
 	    function refresh() {

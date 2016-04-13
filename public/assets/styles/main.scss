@@ -303,7 +303,7 @@ body{
 	background: whitesmoke;
 	padding: 0;
 	height: 100%;
-	overflow-y: hidden;
+	overflow-y: auto;
 	width: 25%;
 	box-sizing: border-box;
 	float: left;
@@ -342,7 +342,6 @@ input#search:focus{
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	overflow-y: scroll;
 }
 
 #notesPage #list ul li{
