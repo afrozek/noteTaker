@@ -277,17 +277,20 @@ body {
   color: white;
   background: #4aaeff; }
 
+#notesPage #canvas #header #tabs ul li:hover {
+  background: #224f7c; }
+
 #notesPage #canvas #header #tabs ul li span {
-  padding: 6px 0px 6px 10px; }
+  padding: 8px 0px 8px 10px; }
 
 #notesPage #canvas #header #tabs ul li i {
-  padding: 6px 6px; }
+  padding: 8px 8px; }
 
 #notesPage #canvas #header #tabs ul li i:hover {
-  background: #2f6fad; }
+  color: red; }
 
 #notesPage #canvas .notesContainer {
-  padding-top: 25px; }
+  padding-top: 30px; }
 
 #notesPage #canvas .note {
   margin: 10px; }
