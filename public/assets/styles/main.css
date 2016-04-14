@@ -318,7 +318,9 @@ input#search:focus {
   padding-top: 44px; }
 
 #notesPage #canvas .note {
-  padding: 10px; }
+  padding: 10px;
+  position: relative;
+  z-index: 98; }
 
 #notesPage #canvas .note i.edit {
   opacity: 0;

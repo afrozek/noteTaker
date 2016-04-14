@@ -14,6 +14,7 @@
 		vm.activate = activate;
 		vm.closeTab = closeTab;
 		vm.newNote = newNote;
+		vm.deleteNote = deleteNote;
 		vm.showList = true;
 		vm.gridMode = true;
 
@@ -92,7 +93,14 @@
 
 	    function newNote() {
 	    	vm.allNotes.push({title:"Untitled",content:""});
-	    	console.log(vm.allNotes);
+	    	var newNoteIndex = vm.allNotes.length-1;
+	    	activate(vm.allNotes[newNoteIndex]);
+	    	window.location.hash = "notes#Untitled";
+	    }
+
+	    function deleteNote(note){
+	    	console.log('deleting')
+	    	console.log(note.$$hashKey)
 	    }
 
 	    function refresh() {
