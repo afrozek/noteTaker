@@ -4,9 +4,20 @@ var bcrypt = require('bcrypt-nodejs');
 
 
 ///
-var NoteSchema = new mongoose.Schema({
-	owner: { type: String, required: true },
-	notes:[{ title: String , items:[] }]
+var NoteSchema = new mongoose.Schema(
+{
+	owner: { type: String, required: true, unique: true },
+	notes:[
+			{
+			  title: { type: String, required: true, unique: true },
+			  content: String,
+			  sharedWith:[
+			  				{user: String, canEdit: Boolean}
+			  			 ]
+			}
+		  ],
+	sharedWithMe: [{owner: String, title: String, }]
+
 });
 
 var Note = mongoose.model('Note', NoteSchema);
