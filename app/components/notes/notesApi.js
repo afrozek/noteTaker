@@ -23,7 +23,7 @@ function notesApi (app, express) {
 
 	});
 
-// add a user
+// initialize user's first note
 	notesApi.post('/initNotes', function (req, res) {
 
 	//get body data
@@ -69,14 +69,16 @@ function notesApi (app, express) {
 
 	}); //end post addUser
 
-// add a user
+// adds a note
 	notesApi.post('/addNote', function (req, res) {
+
+		//req.body.
 
 		var form = {};
 
 		form.owner = "smuz@gmail.com";
 		form.note =  {
-						  "title": "frog house",
+						  "title": "another one",
 						  "content": "Some dummy content",
 						  "sharedWith":[
 						  				{"user": "auk2@njti.edu", "canEdit": false}
@@ -96,8 +98,32 @@ function notesApi (app, express) {
 
 	}); //end addNote
 
-// 
-	notesApi.post('/updateNotes', function (req, res) {
+// updates/edits a note
+	notesApi.post('/updateNote', function (req, res) {
+
+		//req.body.
+
+		var form = {};
+
+		form.owner = "smuz@gmail.com";
+		form.noteIndex = 1;
+		//form.note.title = ""
+
+		//form.note.id
+		form.note =  {
+						  "title": "another one",
+						  "content": "using set",
+						  "sharedWith":[
+						  				{"user": "auk2@njti.edu", "canEdit": false}
+						  			 ]
+						}
+
+
+		var set = {$set: {}};
+		set.$set["notes." + form.noteIndex] = form.note;				
+		Note.findOneAndUpdate(form.owner, set, function(err, doc) {
+		    res.send(doc);
+		});
 
 
 
