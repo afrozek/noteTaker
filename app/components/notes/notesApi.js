@@ -98,36 +98,81 @@ function notesApi (app, express) {
 
 	}); //end addNote
 
-// updates/edits a note
+// updates/edits an entire note object
 	notesApi.post('/updateNote', function (req, res) {
 
-		//req.body.
-
+	//req.body.
 		var form = {};
 
 		form.owner = "smuz@gmail.com";
-		form.noteIndex = 1;
-		//form.note.title = ""
+		form.noteIndex = 0;
 
-		//form.note.id
+	//form.note.id
 		form.note =  {
-						  "title": "another one",
-						  "content": "using set",
+						  "title": "frog house",
+						  "content": "using query,set and options roosts",
 						  "sharedWith":[
 						  				{"user": "auk2@njti.edu", "canEdit": false}
 						  			 ]
 						}
 
+	// prepare parent query
+		var query = form.owner;
 
+	//create set object				
 		var set = {$set: {}};
-		set.$set["notes." + form.noteIndex] = form.note;				
-		Note.findOneAndUpdate(form.owner, set, function(err, doc) {
+	//prepare set query
+		set.$set["notes." + form.noteIndex] = form.note;
+
+	//options
+		var options = {safe: true, upsert: true, new:true};
+
+	//execute the query					
+		Note.findOneAndUpdate(
+			query,
+			set,
+			options,
+			function(err, doc) {
 		    res.send(doc);
 		});
 
-
-
 	}); //end  
+
+// updates/edits content of a note
+	notesApi.post('/updateNoteContent', function (req, res) {
+
+	//req.body.
+		var form = {};
+
+		form.owner = "smuz@gmail.com";
+		form.noteIndex = 0;
+
+	//form.note.id
+		form.noteContent =  "this i0 new updated content"
+
+	// prepare parent query
+		var query = form.owner;
+
+	//create set object				
+		var set = {$set: {}};
+	//prepare set query
+		set.$set["notes." + form.noteIndex +'.content'] = form.noteContent;
+
+	//options
+		var options = {safe: true, upsert: true, new:true};
+
+	//execute the query					
+		Note.findOneAndUpdate(
+			query,
+			set,
+			options,
+			function(err, doc) {
+		    res.send(doc);
+		});
+
+	}); //end 
+
+
 
 // 
 	notesApi.post('/getNotes', function (req, res) {
