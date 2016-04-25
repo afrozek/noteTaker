@@ -31,6 +31,7 @@ function notesApi (app, express) {
 		var form = {};
 		form.owner = req.body.owner;
 		form.notes = req.body.notes;
+		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
 
 		form.owner = "muz@gmail.com";
 		form.notes =    [{
@@ -41,13 +42,14 @@ function notesApi (app, express) {
 						  			 ]
 						}]
 
-		Note.find({owner: form.owner}, function(err,note){
+		Note.find({ownerId: form.ownerId}, function(err,note){
 			if(err) return res.json({"success": false , data: err})
 
 			//checks for dupes, and creates  if doesnt exist
 			else if (!note[0]){
 
 				var initNote = new Note({
+					ownerId: form.ownerId,
 					owner: form.owner,
 					notes: form.notes
 				})
@@ -75,7 +77,8 @@ function notesApi (app, express) {
 		var form = {};
 
 		form.owner = "muz@gmail.com";
-		form.userId = ObjectId("571e21c68993eda81ea34da1");
+		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
+
 
 		//form.userID = "";
 		form.note =  {
@@ -87,7 +90,7 @@ function notesApi (app, express) {
 						}
 
 	 	Note.findOneAndUpdate(
-		    form.userId,
+		    form.ownerId,
 		    {$push: {"notes": form.note}},
 		    {safe: true, upsert: true, new:true},
 		    function(err, result) {
@@ -108,7 +111,7 @@ function notesApi (app, express) {
 		var form = {};
 
 		form.owner = "muz@gmail.com";
-		form.userId = ObjectId("571e21c68993eda81ea34da1");
+		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
 		form.noteId = ObjectId("571e22ec0b2a095210a5ea15");
 
 		//form.userID = "";
@@ -120,7 +123,7 @@ function notesApi (app, express) {
 						  			 ]
 						}
 
-	 	Note.update({_id: form.userId}, 
+	 	Note.update({_id: form.ownerId}, 
 		    {$pull: {notes:{_id: form.noteId}}},
 		    function(err, doc) {
 		    	res.send(doc);
@@ -208,12 +211,13 @@ function notesApi (app, express) {
 		var form = {};
 
 		form.owner = "muz@gmail.com";
-		form.userId = ObjectId("571e21c68993eda81ea34da1");
+		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
+
 		//form.userId = req.body.userId;
 		form.noteId = ObjectId("571dfd95db5cc6c00668f9d8");
 		form.noteContent =  "i love doggsdssies"
 
-		Note.update({_id: form.userId, "notes._id": form.noteId}, 
+		Note.update({_id: form.ownerId, "notes._id": form.noteId}, 
 		    {$set: {"notes.$.content": form.noteContent }},
 		    function(err, doc) {
 		    	res.send(doc);
@@ -231,12 +235,13 @@ function notesApi (app, express) {
 		//gen info
 		var form = {};
 		form.owner = req.body.owner;
-		form.userId = ObjectId("571e21c68993eda81ea34da1");
+		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
+
 
 	
 
 
-		Note.findById(form.userId , function(err,notes){
+		Note.findById(form.ownerId , function(err,notes){
 			if(err) res.send(err);
 			if(notes){
 

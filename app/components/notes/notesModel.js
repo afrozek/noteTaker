@@ -1,11 +1,14 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var ObjectId = require('mongodb').ObjectID;
+var User = require('../users/usersModel.js');
 
 
 
 ///
 var NoteSchema = new mongoose.Schema(
 {
+	ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	owner: { type: String, required: true, unique: true },
 	notes:[
 			{
