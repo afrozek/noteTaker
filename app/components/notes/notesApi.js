@@ -32,17 +32,17 @@ function notesApi (app, express) {
 		form.owner = req.body.owner;
 		form.notes = req.body.notes;
 
-		// form.owner = "muz@gmail.com";
-		// form.notes =    [{
-		// 				  title: "testNote",
-		// 				  content: "Some dummy content",
-		// 				  sharedWith:[
-		// 				  				{user: "auk2@njti.edu", canEdit: false}
-		// 				  			 ]
-		// 				}]
+		form.owner = "muz@gmail.com";
+		form.notes =    [{
+						  title: "testNote",
+						  content: "Some dummy content",
+						  sharedWith:[
+						  				{user: "auk2@njti.edu", canEdit: false}
+						  			 ]
+						}]
 
 		Note.find({owner: form.owner}, function(err,note){
-			if(err)  res.send(err)
+			if(err) return res.json({"success": false , data: err})
 
 			//checks for dupes, and creates  if doesnt exist
 			else if (!note[0]){
@@ -53,40 +53,41 @@ function notesApi (app, express) {
 				})
 
 				initNote.save(function(err){
-					if(err) return res.send("failed: " + err)
-					res.send(initNote)
+					if(err) return res.json({"success": false , data: err})
+					res.json({"success": true , data: initNote})
 				})
 
 			}//end else if
 
-			else res.send("already exists")
+			else res.json({"success": false , data: "already initialized"})
 		})
 		
-		
-
-		
-		
+				
 
 	}); //end post addUser
 
 // adds a note
+// pushes new note to notes array
 	notesApi.post('/addNote', function (req, res) {
 
 		//req.body.
 
 		var form = {};
 
-		form.owner = "smuz@gmail.com";
+		form.owner = "muz@gmail.com";
+		form.userId = ObjectId("571e21c68993eda81ea34da1");
+
+		//form.userID = "";
 		form.note =  {
-						  "title": "another one",
-						  "content": "Some dummy content",
+						  "title": "spongebob notes",
+						  "content": "what lives in a spongebob under the sea",
 						  "sharedWith":[
 						  				{"user": "auk2@njti.edu", "canEdit": false}
 						  			 ]
 						}
 
 	 	Note.findOneAndUpdate(
-		    form.owner,
+		    form.userId,
 		    {$push: {"notes": form.note}},
 		    {safe: true, upsert: true, new:true},
 		    function(err, result) {
@@ -98,93 +99,144 @@ function notesApi (app, express) {
 
 	}); //end addNote
 
-// updates/edits an entire note object
-	notesApi.post('/updateNote', function (req, res) {
+// removes a note
+// pulls a note from notes array
+	notesApi.delete('/removeNote', function (req, res) {
 
-	//req.body.
+		//req.body.
+
 		var form = {};
 
-		form.owner = "smuz@gmail.com";
-		form.noteIndex = 0;
+		form.owner = "muz@gmail.com";
+		form.userId = ObjectId("571e21c68993eda81ea34da1");
+		form.noteId = ObjectId("571e22ec0b2a095210a5ea15");
 
-	//form.note.id
+		//form.userID = "";
 		form.note =  {
-						  "title": "frog house",
-						  "content": "using query,set and options roosts",
+						  "title": "spongebob notes",
+						  "content": "what lives in a spongebob under the sea",
 						  "sharedWith":[
-						  				{"user": "auk2@njti.edu", "canEdit": false}
+						  				{"user": "auk2@njit.edu", "canEdit": false}
 						  			 ]
 						}
 
-	// prepare parent query
-		var query = form.owner;
+	 	Note.update({_id: form.userId}, 
+		    {$pull: {notes:{_id: form.noteId}}},
+		    function(err, doc) {
+		    	res.send(doc);
+		    })
+		
 
-	//create set object				
-		var set = {$set: {}};
-	//prepare set query
-		set.$set["notes." + form.noteIndex] = form.note;
+	}); //end addNote
 
-	//options
-		var options = {safe: true, upsert: true, new:true};
+// // updates/edits an entire note object
+// 	notesApi.post('/updateNote', function (req, res) {
 
-	//execute the query					
-		Note.findOneAndUpdate(
-			query,
-			set,
-			options,
-			function(err, doc) {
-		    res.send(doc);
-		});
+// 	//req.body.
+// 		var form = {};
 
-	}); //end  
+// 		form.owner = "muz@gmail.com";
+// 		form.noteIndex = 0;
 
-// updates/edits content of a note
+// 	//form.note.id
+// 		form.note =  {
+// 						  "title": "frog house",
+// 						  "content": "using query,set and options roosts",
+// 						  "sharedWith":[
+// 						  				{"user": "auk2@njti.edu", "canEdit": false}
+// 						  			 ]
+// 						}
+
+// 	// prepare parent query
+// 		var query = form.owner;
+
+// 	//create set object				
+// 		var set = {$set: {}};
+// 	//prepare set query
+// 		set.$set["notes." + form.noteIndex] = form.note;
+
+// 	//options
+// 		var options = {safe: true, upsert: true, new:true};
+
+// 	//execute the query					
+// 		Note.findOneAndUpdate(
+// 			query,
+// 			set,
+// 			options,
+// 			function(err, doc) {
+// 		    res.send(doc);
+// 		});
+
+// 	}); //end  
+
+
+
+// // updates/edits content of a note
+// 	notesApi.post('/updateNoteContent', function (req, res) {
+
+// 	//req.body.
+// 		var form = {};
+
+// 		form.owner = "muz@gmail.com";
+// 		form.noteIndex = 0;
+
+// 	//form.note.id
+// 		form.noteContent =  "this i0 new updated content"
+
+// 	// prepare parent query
+// 		var query = form.owner;
+
+// 	//create set object				
+// 		var set = {$set: {}};
+// 	//prepare set query
+// 		set.$set["notes." + form.noteIndex + '.content'] = form.noteContent;
+
+// 	//options
+// 		var options = {safe: true, upsert: true, new:true};
+
+// 	//execute the query					
+// 		Note.findOneAndUpdate(query,set,options,function(err, doc) {
+// 		    res.send(doc);
+// 		});
+
+// 	}); //end 
+
+// updates/edits content of a note by id
 	notesApi.post('/updateNoteContent', function (req, res) {
 
 	//req.body.
 		var form = {};
 
-		form.owner = "smuz@gmail.com";
-		form.noteIndex = 0;
+		form.owner = "muz@gmail.com";
+		form.userId = ObjectId("571e21c68993eda81ea34da1");
+		//form.userId = req.body.userId;
+		form.noteId = ObjectId("571dfd95db5cc6c00668f9d8");
+		form.noteContent =  "i love doggsdssies"
 
-	//form.note.id
-		form.noteContent =  "this i0 new updated content"
+		Note.update({_id: form.userId, "notes._id": form.noteId}, 
+		    {$set: {"notes.$.content": form.noteContent }},
+		    function(err, doc) {
+		    	res.send(doc);
+		    })
 
-	// prepare parent query
-		var query = form.owner;
-
-	//create set object				
-		var set = {$set: {}};
-	//prepare set query
-		set.$set["notes." + form.noteIndex +'.content'] = form.noteContent;
-
-	//options
-		var options = {safe: true, upsert: true, new:true};
-
-	//execute the query					
-		Note.findOneAndUpdate(
-			query,
-			set,
-			options,
-			function(err, doc) {
-		    res.send(doc);
-		});
-
+				
 	}); //end 
 
 
 
-// 
+// get notes by id
 	notesApi.post('/getNotes', function (req, res) {
 
 	//get body data
 		//gen info
 		var form = {};
 		form.owner = req.body.owner;
+		form.userId = ObjectId("571e21c68993eda81ea34da1");
+
 	
 
 
-		Note.findOne({owner: form.owner} , function(err,notes){
+		Note.findById(form.userId , function(err,notes){
 			if(err) res.send(err);
 			if(notes){
 
@@ -202,25 +254,33 @@ function notesApi (app, express) {
 
 
 
-// update a user
-	notesApi.put('/update', function (req, res) {
+// //delete a user
+// 	notesApi.delete('/delete', function (req, res) {
 
-		//Note.find(One)
+// 			//get body data
+// 			var form = {};
+// 			//form.username = req.body.username;
+// 			form.username = "muz@gmail.com";
+// 			form.userId = ObjectId("571e21c68993eda81ea34da1")
+// 			form.noteId = ObjectId("571dfd95db5cc6c00668f9d8")
+
+// 			Note.findById( form.userId, function(err,doc){
+// 				if(err)res.send(err)
+// 				if(!doc || typeof(doc) == 'undefined' || null ){
+// 					res.json({"status": false , "data": "no user found"})
+// 				} 
+// 				else{
+// 					var notes = doc.notes.id(form.noteId);
+// 					if(!notes || typeof(notes) == 'undefined' || null) res.json({status: false, data: "note not found"});
+// 					else res.json({status: true, data: notes});
+					
+// 					//res.send(doc.notes.id(ObjectId("571dfd95db5cc6c00668f9d8")))
+// 				}
+// 				//res.send(doc)
 			
+// 			})
 			
-	}); //end put updateUser
-
-
-//delete a user
-	notesApi.delete('/delete', function (req, res) {
-
-			//get body data
-			var form = {};
-			form.username = req.body.username;
-
-			
-			
-	}); //end put deleteUser 
+// 	}); //end put deleteUser 
 
 
 	return notesApi;
