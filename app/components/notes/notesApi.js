@@ -1,7 +1,8 @@
 module.exports = notesApi;
 
 var Note = require('./notesModel.js');
-//var User = require('./usersModel.js');
+var User = require('../users/usersModel.js');
+
 var jwt = require('jwt-simple');
 var bcrypt = require('bcrypt-nodejs');
 var ObjectId = require('mongodb').ObjectID;
@@ -11,14 +12,44 @@ var ObjectId = require('mongodb').ObjectID;
 
 function notesApi (app, express) {
 	var notesApi = express.Router();
+	var ownerId = null;
+	var owner = null;
+
+// middleware to authorize user to notes api
+
+	notesApi.use(function(req, res, next){
+		//check for token
+		if(!req.body.token){
+			return res.status(401).send({
+				message:'You are not authorized to view this page'
+			})
+		}
+
+		//token present, decode token
+		var token = req.body.token;
+		var payload = jwt.decode(token, 'secret');
+
+		//check token contents
+		if(!payload.sub)
+			return res.status(401).send({message:'Authentication Failed'})
+		else{
+			ownerId = payload.sub;
+			owner = payload.email;
+		}
+
+		//everything checked out
+		//res.json({success: true, id: ownerId});
+		console.log("request by: " + owner)
+		next();
+	})
 
 
 // get all notes
-	notesApi.get('/getAllNotes', function (req, res) {
+	notesApi.post('/getAllNotes', function (req, res) {
 
 
-		Note.find({},function(err, note){
-			return res.send(note);
+		Note.find({ownerId: ownerId},function(err, note){
+			return res.send(note[0].notes);
 		})
 
 	});
@@ -29,14 +60,14 @@ function notesApi (app, express) {
 	//get body data
 		//gen info
 		var form = {};
-		form.owner = req.body.owner;
-		form.notes = req.body.notes;
-		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
+		form.owner = owner;
+		//form.notes = req.body.notes;
+		form.ownerId = ownerId;
 
-		form.owner = "muz@gmail.com";
+		//form.owner = owner";
 		form.notes =    [{
-						  title: "testNote",
-						  content: "Some dummy content",
+						  title: "My First Note",
+						  content: "your first sample note",
 						  sharedWith:[
 						  				{user: "auk2@njti.edu", canEdit: false}
 						  			 ]
@@ -72,15 +103,13 @@ function notesApi (app, express) {
 // pushes new note to notes array
 	notesApi.post('/addNote', function (req, res) {
 
-		//req.body.
-
 		var form = {};
 
-		form.owner = "muz@gmail.com";
-		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
+		//form.owner = owner";
+		form.ownerId = ownerId;
 
 
-		//form.userID = "";
+		//form.ownerId = "";
 		form.note =  {
 						  "title": "spongebob notes",
 						  "content": "what lives in a spongebob under the sea",
@@ -110,11 +139,11 @@ function notesApi (app, express) {
 
 		var form = {};
 
-		form.owner = "muz@gmail.com";
-		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
-		form.noteId = ObjectId("571e22ec0b2a095210a5ea15");
+		// form.owner = owner";
+		form.ownerId = ownerId;
+		form.noteId = req.body.noteId
 
-		//form.userID = "";
+		//form.ownerId = "";
 		form.note =  {
 						  "title": "spongebob notes",
 						  "content": "what lives in a spongebob under the sea",
@@ -138,7 +167,7 @@ function notesApi (app, express) {
 // 	//req.body.
 // 		var form = {};
 
-// 		form.owner = "muz@gmail.com";
+// 		form.owner = owner";
 // 		form.noteIndex = 0;
 
 // 	//form.note.id
@@ -180,7 +209,7 @@ function notesApi (app, express) {
 // 	//req.body.
 // 		var form = {};
 
-// 		form.owner = "muz@gmail.com";
+// 		form.owner = owner";
 // 		form.noteIndex = 0;
 
 // 	//form.note.id
@@ -210,12 +239,10 @@ function notesApi (app, express) {
 	//req.body.
 		var form = {};
 
-		form.owner = "muz@gmail.com";
-		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
-
-		//form.userId = req.body.userId;
-		form.noteId = ObjectId("571dfd95db5cc6c00668f9d8");
-		form.noteContent =  "i love doggsdssies"
+		// form.owner = owner";
+		form.ownerId = ownerId;
+		form.noteId = req.body.noteId;
+		form.noteContent =  req.body.noteContent;
 
 		Note.update({_id: form.ownerId, "notes._id": form.noteId}, 
 		    {$set: {"notes.$.content": form.noteContent }},
@@ -234,8 +261,8 @@ function notesApi (app, express) {
 	//get body data
 		//gen info
 		var form = {};
-		form.owner = req.body.owner;
-		form.ownerId = ObjectId("5694a306485d6b47ecaa9313");
+		form.owner = owner;
+		form.ownerId = ownerId;
 
 
 	
@@ -266,10 +293,10 @@ function notesApi (app, express) {
 // 			var form = {};
 // 			//form.username = req.body.username;
 // 			form.username = "muz@gmail.com";
-// 			form.userId = ObjectId("571e21c68993eda81ea34da1")
+// 			form.ownerId = ObjectId("571e21c68993eda81ea34da1")
 // 			form.noteId = ObjectId("571dfd95db5cc6c00668f9d8")
 
-// 			Note.findById( form.userId, function(err,doc){
+// 			Note.findById( form.ownerId, function(err,doc){
 // 				if(err)res.send(err)
 // 				if(!doc || typeof(doc) == 'undefined' || null ){
 // 					res.json({"status": false , "data": "no user found"})
