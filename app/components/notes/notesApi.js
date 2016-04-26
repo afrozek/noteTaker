@@ -267,33 +267,34 @@ function notesApi (app, express) {
 
 
 
-// get notes by id
-	notesApi.post('/getNotes', function (req, res) {
+// // get notes by id
+// 	notesApi.post('/getNotes', function (req, res) {
 
-	//get body data
-		//gen info
-		var form = {};
-		form.owner = owner;
-		form.ownerId = ownerId;
+// 	//get body data
+// 		//gen info
+		
+// 		var form = {}
+// 		form.ownerId = ownerId;
 
 
 	
 
 
-		Note.findById(form.ownerId , function(err,notes){
-			if(err) res.send(err);
-			if(notes){
+// 		Note.findById(form.ownerId , function(err,notes){
+// 			res.send(notes)
+// 			// if(err) res.send(err);
+// 			// if(notes){
 
-				res.send({success: true, notes: notes})
-			}
-			else res.send({success: false})
-			//note.notes[0].items.push("rooots")
-			//note.notes[0].items = ['nick','trick']
-			//res.send(note.notes[0].items);
+// 			// 	res.send({success: true, notes: notes})
+// 			// }
+// 			// else res.send({success: false})
+// 			//note.notes[0].items.push("rooots")
+// 			//note.notes[0].items = ['nick','trick']
+// 			//res.send(note.notes[0].items);
 
-		})
+// 		})
 
-	}); //end post addUser
+// 	}); //end post addUser
 
 
 
