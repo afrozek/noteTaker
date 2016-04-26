@@ -12,18 +12,24 @@
 		console.log("notes ballsout");
 
 		vm.allNotes = null;
+		vm.activeNotes = [];
+
+		vm.addNote = addNote;
+		vm.saveNote = saveNote;
+		vm.deleteNote = deleteNote;
+		vm.updateNote = updateNote;
+		vm.newNote = newNote;
+
 		vm.activate = activate;
 		vm.closeTab = closeTab;
-		vm.newNote = newNote;
-		vm.deleteNote = deleteNote;
+		
 		vm.showList = true;
 		vm.gridMode = true;
 
 
 		
 	    
-	    $scope.note1 = "aldsjflkasdj";
-	    console.log($scope.note1);
+	   
 	  	$scope.tinymceOptions = {
 		    plugins: 'link image code',
 		    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | paste'
@@ -33,6 +39,7 @@
 		$scope.dogs ="froadsasdfadsgs"
 		vm.tinymceModel = 'Initial consdsdtent';
 
+// sample notes
 		// vm.allNotes = [
 		// 	{title:"gulp cheat sheet",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"},
 		// 	{title:"meteor",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna m consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"}
@@ -45,20 +52,31 @@
 
 		// ]
 
+		//gets all notes
 		var token = $window.localStorage.getItem('userToken');
+
 		$http.post('http://localhost:3000/api/notes/getAllNotes',{token: token}).then(function(data){
 			vm.allNotes = data.data;
 			
 		})
 
-		vm.activeNotes = [];
+		function addNote() {
 
+		}
 
-  $scope.tinymceOptions = {
-    plugins: 'link image code',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-  };
+		function saveNote() {
+			
+		}
 
+		function deleteNote() {
+
+		}
+
+		function updateNote() {
+
+		}
+
+		
 
 
 	    ////////////

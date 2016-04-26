@@ -3,12 +3,12 @@
 
 angular
     .module('app', [
+        'auth',
     	'ui.router',
     	'ngAnimate',
     	'sample',
     	'register',
     	'toastr',
-    	'auth',
     	'members',
     	'notes',
         'budget',
@@ -17,6 +17,12 @@ angular
         'ui.tinymce'
     ])
 
+// .config(function($httpProvider) {
+
+//     // attach our auth interceptor to the http requests
+//     $httpProvider.interceptors.push('authInterceptor');
+
+// })
 
 
 .run(['$rootScope','$state','authService','$q',function($rootScope, $state, authService ,$q) {
@@ -71,5 +77,5 @@ angular
 
 
 
-})();; //end iffe
+})(); //end iffe
 

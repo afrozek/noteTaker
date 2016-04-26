@@ -133,7 +133,7 @@ function notesApi (app, express) {
 
 // removes a note
 // pulls a note from notes array
-	notesApi.delete('/removeNote', function (req, res) {
+	notesApi.delete('/deleteNote', function (req, res) {
 
 		//req.body.
 
