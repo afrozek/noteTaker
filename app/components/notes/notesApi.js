@@ -54,6 +54,16 @@ function notesApi (app, express) {
 
 	});
 
+// get all note metadatas
+	notesApi.post('/getAllNotesMeta', function (req, res) {
+
+
+		Note.find({ownerId: ownerId},'notes.title notes._id notes.sharedWith',function(err, note){
+			return res.send(note[0]);
+		})
+
+	});
+
 // initialize user's first note
 	notesApi.post('/initNotes', function (req, res) {
 
@@ -110,13 +120,15 @@ function notesApi (app, express) {
 
 
 		//form.ownerId = "";
-		form.note =  {
-						  "title": "spongebob notes",
-						  "content": "what lives in a spongebob under the sea",
-						  "sharedWith":[
-						  				{"user": "auk2@njti.edu", "canEdit": false}
-						  			 ]
-						}
+		// form.note =  {
+		// 				  "title": "spongebob notes",
+		// 				  "content": "what lives in a spongebob under the sea",
+		// 				  "sharedWith":[
+		// 				  				{"user": "auk2@njti.edu", "canEdit": false}
+		// 				  			 ]
+		// 				}
+
+		form.note = req.body.note;
 
 	 	Note.findOneAndUpdate(
 		    form.ownerId,

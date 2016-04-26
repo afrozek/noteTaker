@@ -59,7 +59,7 @@ angular.module('app')
 		.state('app.notes',{
 			url: '/notes',
 			templateUrl:'components/notes/views/notes.view.html',
-			controller: 'notesCtrl',
+
 			data: {
 				permission: true,
 				permissionLevel: ['admin','member']

@@ -11,6 +11,7 @@
 		var vm = this;
 		console.log("notes ballsout");
 
+		vm.getNotes = getNotes();
 		vm.allNotes = null;
 		vm.activeNotes = [];
 
@@ -53,19 +54,22 @@
 		// ]
 
 		//gets all notes
-		var token = $window.localStorage.getItem('userToken');
+		
 
-		$http.post('http://localhost:3000/api/notes/getAllNotes',{token: token}).then(function(data){
-			vm.allNotes = data.data;
-			
-		})
+		function getNotes() {
+			var token = $window.localStorage.getItem('userToken');
+			$http.post('http://localhost:3000/api/notes/getAllNotesMeta',{token: token}).then(function(data){
+				vm.allNotes = data.data.notes;
+				console.log(vm.allNotes);
+			})
+		}
 
 		function addNote() {
 
 		}
 
 		function saveNote() {
-			
+
 		}
 
 		function deleteNote() {
@@ -87,7 +91,9 @@
     		if(vm.activeNotes.length > 0 && vm.activeNotes.length !== 4 ){
     			console.log('looping')
 	    		angular.forEach(vm.activeNotes, function(value) {
-				  if(value.title.toString() == note.title.toString()){
+	    			console.log(value._id.toString());
+	    			console.log(note._id.toString());
+				  if(value._id.toString() == note._id.toString()){
 				  	permissionToActivate = false;
 				  	toastr.error("Whoops! Looks like this note is already open")
 				  }
@@ -114,15 +120,39 @@
 	    }
 
 	    function newNote() {
-	    	vm.allNotes.push({title:"Untitled",content:""});
-	    	var newNoteIndex = vm.allNotes.length-1;
-	    	activate(vm.allNotes[newNoteIndex]);
+	    	// first check if active notes is full
+	    	if(vm.activeNotes.length == 4){
+	    		return toastr.error("Whoops! Please close a tab before creating a new note");
+	    	}
+
+	    	// create new note object
+	    	var newNote = {title:"doogs",content:"","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
+	    	
+	    	// get token
+	    	var token = $window.localStorage.getItem('userToken');
+
+	    	// send new note object
+	    	$http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote}).then(function(data){
+	    		console.log(data);
+
+	    		// data returns the list of new notes
+	    		vm.allNotes = data.data.notes;
+	    		
+	    		// push new note to active notes
+	    		var newNoteIndex = vm.allNotes.length-1;
+	    		activate(vm.allNotes[newNoteIndex]);
+
+	    		// log new active notes
+	    		console.log(vm.activeNotes);
+	    	});
+			
+	    	//scroll to the new note
 	    	window.location.hash = "notes#Untitled";
 	    }
 
-	    function deleteNote(note){
+	    function deleteNote(noteId){
 	    	console.log('deleting')
-	    	console.log(note.$$hashKey)
+	    	console.log(noteId)
 	    }
 
 	    function refresh() {
