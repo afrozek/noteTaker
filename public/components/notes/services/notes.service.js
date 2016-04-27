@@ -5,126 +5,48 @@
     	.module('notes')
     	.factory('notesService', notesService);
 
-    notesService.$inject = ['$http']
+    notesService.$inject = ['$http','$window']
 
-    function notesService($http) {
+    function notesService($http,$window) {
+
+        var token = getToken();
     	var service = {
-
-            getNote: getNote,
-            getNotes: getNotes,
-            saveNotes: saveNotes
-
-
+            getToken: getToken, 
+            getNotesList: getNotesList,
+            getSingleNote: getSingleNote,
+            saveAllNotes: saveAllNotes,
+            addNewNote: addNewNote
+            // updateNoteTitle: updateNoteTitle,
+            // updateNoteContent: updateNote
     	};
 
     	return service;
 
     	////////////
 
-        // gets a single note
-        function getNote () {
-
-            var note = {
-                owner: "auk2@njit.edu",
-                title: "todo",
-                items: [ "laundry", "apply jobs", "gym" ],
-                createDate: "1/1/2016",
-                lastModified: "1/2/2016",
-                sharedWith: "a.froze.ak@gmail.com"
-            }
-
-            return note;
-
+        function getToken() {
+            return $window.localStorage.getItem('userToken');
+        }
+      
+        // gets notes list, excludes the actual note content
+        function getNotesList () {
+            return $http.post('http://localhost:3000/api/notes/getAllNotesMeta',{token: token});
         } //end getNote()
 
+        function getSingleNote(noteId) {
+            return $http.post('http://localhost:3000/api/notes/getSingleNote',{token: token, noteId: noteId});
 
-        // gets all notes
-        function getNotes () {
+        }
 
-        return $http.post('http://localhost:3000/api/notes/getNotes',{email:"moiz@gmail.com"})
-                 
-                
-           
+        function addNewNote () {
+
+            // create new note object
+            var newNote = {title:"froost",content:"","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
             
-            var notes = [
-                {
-                    owner: "auk2@njit.edu",
-                    title: "1",
-                    items: [ "laundry", "apply jobs", "gym" ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "2",
-                    items: [ "html5 drag and drop", "socket.io", "nodejs" ],
-                    createDate: "2/1/2016",
-                    lastModified: "2/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "3",
-                    items: [ "bose headphones", "2016 honda grill", "solid state hard drive" ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "4",
-                    items: [ "laundry", "apply jobs", "gym" ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "5",
-                    items: [ "html5 drag and drop", "socket.io", "nodejs" ],
-                    createDate: "2/1/2016",
-                    lastModified: "2/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "6",
-                    items: [ "bose headphones", "2016 honda grill", "solid state hard drive" ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "7",
-                    items: [ "laundry", "apply jobs", "gym","bose headphones", "2016 honda grill", "solid state hard drive"  ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "8",
-                    items: [ "html5 drag and drop", "socket.io", "nodejs" ],
-                    createDate: "2/1/2016",
-                    lastModified: "2/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                },
-                {
-                    owner: "auk2@njit.edu",
-                    title: "9",
-                    items: [ "bose headphones", "2016 honda grill", "solid state hard drive","html5 drag and drop", "socket.io", "nodejs"  ],
-                    createDate: "1/1/2016",
-                    lastModified: "1/2/2016",
-                    sharedWith: "a.froze.ak@gmail.com"
-                }
-            ] //end notes array
+           return $http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote})
+        }
 
-            //return notes
-        } //end get notes
-
-        function saveNotes(notes) {
+        function saveAllNotes(notes) {
             return $http.post('http://localhost:3000/api/notes/updateNotes',{email:"moiz@gmail.com",notes: notes})
         }
 

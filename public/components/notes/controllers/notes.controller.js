@@ -11,12 +11,12 @@
 		var vm = this;
 		console.log("notes ballsout");
 
-		vm.getNotes = getNotes();
+		vm.getNotes = getNotesList();
 		vm.allNotes = null;
 		vm.activeNotes = [];
 		vm.getSingleNote = getSingleNote;
 
-		vm.addNote = addNote;
+
 		vm.saveNote = saveNote;
 		vm.deleteNote = deleteNote;
 		vm.updateNote = updateNote;
@@ -28,10 +28,7 @@
 		vm.showList = true;
 		vm.gridMode = true;
 
-
-		
-	    
-	   
+  
 	  	$scope.tinymceOptions = {
 		    plugins: 'link image code',
 		    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | paste'
@@ -41,37 +38,20 @@
 		$scope.dogs ="froadsasdfadsgs"
 		vm.tinymceModel = 'Initial consdsdtent';
 
-// sample notes
-		// vm.allNotes = [
-		// 	{title:"gulp cheat sheet",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"},
-		// 	{title:"meteor",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna m consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"}
-		// 	,
-		// 	{title:"jquery",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna m consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"}
-		// 	,
-		// 	{title:"angular",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna m consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"}
-		// 	,
-		// 	{title:"swift",content:"nonummy nibh euismod tincidunt ut laoreet dolore magna m consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula q"}
 
-		// ]
-
-		//gets all notes
 		
 
-		function getNotes() {
-			var token = $window.localStorage.getItem('userToken');
-			$http.post('http://localhost:3000/api/notes/getAllNotesMeta',{token: token}).then(function(data){
+		function getNotesList() {
+			notesService.getNotesList().then(function(data){
 				vm.allNotes = data.data.notes;
-				console.log(vm.allNotes);
+				//console.log(vm.allNotes);
 			})
 		}
 
 		function getSingleNote(noteId) {
-			var token = $window.localStorage.getItem('userToken');
-			return $http.post('http://localhost:3000/api/notes/getSingleNote',{token: token, noteId: noteId});
-
-		}
-
-		function addNote() {
+			 notesService.getSingleNote(noteId).then(function(){
+			 	return data.data;
+			 })
 
 		}
 
@@ -115,7 +95,7 @@
 	    	if(permissionToActivate == true){
 			  	console.log("else pushing");
 			  	console.log(noteId)
-			  	getSingleNote(noteId).then(function(res){
+			  	notesService.getSingleNote(noteId).then(function(res){
 			  		var note = res.data.data;
 			  		vm.activeNotes.push(note);
 					console.log(vm.activeNotes)
@@ -137,25 +117,26 @@
 	    		return toastr.error("Whoops! Please close a tab before creating a new note");
 	    	}
 
-	    	// create new note object
-	    	var newNote = {title:"doogs",content:"","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
 	    	
 	    	// get token
 	    	var token = $window.localStorage.getItem('userToken');
 
 	    	// send new note object
-	    	$http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote}).then(function(data){
+	    	notesService.addNewNote().then(function(data){
 	    		console.log(data);
 
-	    		// data returns the list of new notes
-	    		vm.allNotes = data.data.notes;
-	    		
-	    		// push new note to active notes
-	    		var newNoteIndex = vm.allNotes.length-1;
-	    		activate(vm.allNotes[newNoteIndex]);
+	    		notesService.getNotesList().then(function(data){
+	    			// push new note to active notes
+	    			vm.allNotes = data.data.notes;
+		    		var newNoteIndex = vm.allNotes.length-1;
+		    		activate(vm.allNotes[newNoteIndex]);
 
-	    		// log new active notes
-	    		console.log(vm.activeNotes);
+
+		    		// log new active notes
+		    		console.log(vm.activeNotes);
+	    		})
+	    		
+	    		
 	    	});
 			
 	    	//scroll to the new note
