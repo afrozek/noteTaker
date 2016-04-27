@@ -19,7 +19,7 @@
 
 		vm.saveNote = saveNote;
 		vm.deleteNote = deleteNote;
-		vm.updateNote = updateNote;
+		vm.updateNoteContent = updateNoteContent;
 		vm.newNote = newNote;
 
 		vm.activate = activate;
@@ -125,6 +125,13 @@
 	    	});
 			
 	    	
+	    }
+
+	    function updateNoteContent(noteId, noteContent) {
+
+	    	notesService.updateNoteContent(noteId, noteContent).then(function(data){
+	    		console.log(data);
+	    	})
 	    }
 
 	    function deleteNote(noteId,index){

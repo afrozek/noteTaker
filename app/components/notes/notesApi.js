@@ -276,7 +276,7 @@ function notesApi (app, express) {
 		form.noteId = req.body.noteId;
 		form.noteContent =  req.body.noteContent;
 
-		Note.update({_id: form.ownerId, "notes._id": form.noteId}, 
+		Note.update({ownerId: form.ownerId, "notes._id": form.noteId}, 
 		    {$set: {"notes.$.content": form.noteContent }},
 		    function(err, doc) {
 		    	res.send(doc);
