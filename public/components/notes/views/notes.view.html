@@ -64,7 +64,7 @@
         <ul>
           <h5>active notes</h5>
           <li ng-repeat="note in notes.activeNotes " >
-            <a href="#notes#{{note.title}}">{{note.title}}</a>
+            <a href="#notes#{{note._id}}">{{note.title}}</a>
             <i class="fa fa-close" ng-click="notes.closeTab($index)"></i>
           </li>
          
@@ -72,7 +72,7 @@
       </div>
     </div>
     <div class="notesContainer">
-    <div class="note" ng-repeat="note in notes.activeNotes" id="{{note.title}}" ng-class="{'gridMode': notes.gridMode == false }">
+    <div class="note" ng-repeat="note in notes.activeNotes" id="{{note._id}}" ng-class="{'gridMode': notes.gridMode == false }">
       <div class="header cf">
         <h2>
           <!-- <i class="fa fa-file-text"></i> -->

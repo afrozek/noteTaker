@@ -114,7 +114,8 @@
 	    			vm.allNotes = data.data.notes;
 		    		var newNoteIndex = vm.allNotes.length-1;
 		    		activate(vm.allNotes[newNoteIndex]);
-
+		    		//scroll to the new note
+	    			window.location.hash = "notes#" + vm.allNotes[newNoteIndex]._id;
 
 		    		// log new active notes
 		    		console.log(vm.activeNotes);
@@ -123,8 +124,7 @@
 	    		
 	    	});
 			
-	    	//scroll to the new note
-	    	window.location.hash = "notes#Untitled";
+	    	
 	    }
 
 	    function deleteNote(noteId,index){

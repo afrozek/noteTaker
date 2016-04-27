@@ -42,7 +42,7 @@
         function addNewNote () {
 
             // create new note object
-            var newNote = {title:"froost",content:"","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
+            var newNote = {title:"froost",content:"some content","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
             
            return $http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote})
         }
