@@ -15,7 +15,8 @@
             getNotesList: getNotesList,
             getSingleNote: getSingleNote,
             saveAllNotes: saveAllNotes,
-            addNewNote: addNewNote
+            addNewNote: addNewNote,
+            deleteNote: deleteNote,
             // updateNoteTitle: updateNoteTitle,
             // updateNoteContent: updateNote
     	};
@@ -44,6 +45,11 @@
             var newNote = {title:"froost",content:"","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
             
            return $http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote})
+        }
+
+        function deleteNote(noteId) {
+            return $http.post('http://localhost:3000/api/notes/deleteNote',{token: token, noteId: noteId});
+
         }
 
         function saveAllNotes(notes) {

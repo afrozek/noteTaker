@@ -163,7 +163,7 @@ function notesApi (app, express) {
 
 // removes a note
 // pulls a note from notes array
-	notesApi.delete('/deleteNote', function (req, res) {
+	notesApi.post('/deleteNote', function (req, res) {
 
 		//req.body.
 
@@ -171,7 +171,7 @@ function notesApi (app, express) {
 
 		// form.owner = owner";
 		form.ownerId = ownerId;
-		form.noteId = req.body.noteId
+		form.noteId = req.body.noteId.toString();
 
 		//form.ownerId = "";
 		form.note =  {
@@ -182,9 +182,11 @@ function notesApi (app, express) {
 						  			 ]
 						}
 
-	 	Note.update({_id: form.ownerId}, 
+	 	Note.update({ownerId: form.ownerId}, 
 		    {$pull: {notes:{_id: form.noteId}}},
 		    function(err, doc) {
+		    	console.log(form.noteId)
+		    	if(err)res.send(err);
 		    	res.send(doc);
 		    })
 		

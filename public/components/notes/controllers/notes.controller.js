@@ -14,7 +14,7 @@
 		vm.getNotes = getNotesList();
 		vm.allNotes = null;
 		vm.activeNotes = [];
-		vm.getSingleNote = getSingleNote;
+		//vm.getSingleNote = getSingleNote;
 
 
 		vm.saveNote = saveNote;
@@ -48,29 +48,13 @@
 			})
 		}
 
-		function getSingleNote(noteId) {
-			 notesService.getSingleNote(noteId).then(function(){
-			 	return data.data;
-			 })
+		// function getSingleNote(noteId) {
+		// 	 notesService.getSingleNote(noteId).then(function(){
+		// 	 	return data.data;
+		// 	 })
 
-		}
+		// }
 
-		function saveNote() {
-
-		}
-
-		function deleteNote() {
-
-		}
-
-		function updateNote() {
-
-		}
-
-		
-
-
-	    ////////////
 
 	    function activate(noteId) {
 	    	var permissionToActivate = true;
@@ -143,18 +127,29 @@
 	    	window.location.hash = "notes#Untitled";
 	    }
 
-	    function deleteNote(noteId){
+	    function deleteNote(noteId,index){
 	    	console.log('deleting')
-	    	console.log(noteId)
+	    	notesService.deleteNote(noteId).then(function(data){
+	    		if(data.data.nModified == 1){
+	    			closeTab(index)
+	    			toastr.success("Note Deleted")
+	    			getNotesList();
+	    		}
+	    		
+	    	});
+	    	
 	    }
 
-	    function refresh() {
-	      /* */
-	    }
+	   
+		function saveNote() {
 
-	    function search() {
-	      /* */
-	    }
+		}
+
+
+		function updateNote() {
+
+		}
+
 	}
 
 })();
