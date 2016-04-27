@@ -64,6 +64,24 @@ function notesApi (app, express) {
 
 	});
 
+// get single note
+	notesApi.post('/getSingleNote', function (req, res) {
+
+		var noteId = req.body.noteId;
+
+		Note.find({ownerId: ownerId},function(err, doc){
+			var note = doc[0].notes.id(noteId);
+			if(note){
+				return res.send({success: true, data: note});
+			}
+			else{
+				return res.send({success: false, data: "no note found"});
+			}
+		})
+
+	});
+
+
 // initialize user's first note
 	notesApi.post('/initNotes', function (req, res) {
 
