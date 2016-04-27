@@ -14,6 +14,7 @@
 		vm.getNotes = getNotes();
 		vm.allNotes = null;
 		vm.activeNotes = [];
+		vm.getSingleNote = getSingleNote;
 
 		vm.addNote = addNote;
 		vm.saveNote = saveNote;
@@ -64,6 +65,12 @@
 			})
 		}
 
+		function getSingleNote(noteId) {
+			var token = $window.localStorage.getItem('userToken');
+			return $http.post('http://localhost:3000/api/notes/getSingleNote',{token: token, noteId: noteId});
+
+		}
+
 		function addNote() {
 
 		}
@@ -85,15 +92,15 @@
 
 	    ////////////
 
-	    function activate(note) {
+	    function activate(noteId) {
 	    	var permissionToActivate = true;
     		// checks if tab already open
     		if(vm.activeNotes.length > 0 && vm.activeNotes.length !== 4 ){
     			console.log('looping')
 	    		angular.forEach(vm.activeNotes, function(value) {
 	    			console.log(value._id.toString());
-	    			console.log(note._id.toString());
-				  if(value._id.toString() == note._id.toString()){
+	    			console.log(noteId.toString());
+				  if(value._id.toString() == noteId.toString()){
 				  	permissionToActivate = false;
 				  	toastr.error("Whoops! Looks like this note is already open")
 				  }
@@ -107,8 +114,13 @@
 		
 	    	if(permissionToActivate == true){
 			  	console.log("else pushing");
-			  	vm.activeNotes.push(note);
-				console.log(vm.activeNotes)
+			  	console.log(noteId)
+			  	getSingleNote(noteId).then(function(res){
+			  		var note = res.data.data;
+			  		vm.activeNotes.push(note);
+					console.log(vm.activeNotes)
+			  	})
+			  	
 			} 
 	    	
 	    } //end function activate
