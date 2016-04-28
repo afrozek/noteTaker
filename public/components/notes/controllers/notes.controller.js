@@ -11,8 +11,14 @@
 		var vm = this;
 		console.log("notes ballsout");
 
-		vm.getNotes = getNotesList();
-		vm.allNotes = null;
+		vm.getNotesList = function(){
+			notesService.getNotesList().then(function(data){
+				console.log(data);
+				vm.allNotes = data.data.notes;
+				console.log(vm.allNotes);
+			})
+		}
+		vm.getNotesList();
 		vm.activeNotes = [];
 		//vm.getSingleNote = getSingleNote;
 
@@ -43,11 +49,7 @@
 		
 
 		function getNotesList() {
-			notesService.getNotesList().then(function(data){
-
-				vm.allNotes = data.data.notes;
-				//console.log(vm.allNotes);
-			})
+			
 		}
 
 		// function getSingleNote(noteId) {
@@ -144,7 +146,7 @@
 	    	notesService.updateNoteTitle(noteId, noteTitle).then(function(data){
 	    		console.log(data);
 	    		if(data.data.nModified == 1){
-	    			getNotesList();
+	    			vm.getNotesList();
 	    		}
 	    	})
 	    }
@@ -155,7 +157,7 @@
 	    		if(data.data.nModified == 1){
 	    			closeTab(index)
 	    			toastr.success("Note Deleted!")
-	    			getNotesList();
+	    			vm.getNotesList();
 	    		}
 	    		
 	    	});

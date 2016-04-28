@@ -41,6 +41,7 @@
                 .then(function(res){
                    // console.log(res);
                     if(res.status == 200){
+                        $window.sessionStorage.setItem('username', userLoginData.email);
                         setToken(res.data.token);
                         $rootScope.$emit("loggedIn");  
                         toastr.success(res.data.message);

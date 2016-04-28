@@ -5,13 +5,18 @@
 		.module('app')
 		.controller('navCtrl', navCtrl)
 
-	navCtrl.inject = ['']
+	navCtrl.inject = ['$window','$rootScope']
 
-	function navCtrl() {
+	function navCtrl($window, $rootScope) {
 		
 		//console.log('nav controller');
 
 	    var vm = this;
+	    vm.displayName = $window.sessionStorage.getItem('username');
+	    $rootScope.$on('loggedIn',function(){
+	    	vm.displayName = $window.sessionStorage.getItem('username');
+	    })
+	    
 
 
 	    vm.loggedIn = true;

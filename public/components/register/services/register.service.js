@@ -26,6 +26,7 @@
             .then(function(res) {
               
               authService.setToken(res.data.token);
+              
 
               //toast
               toastr.success('You are now my Beta!');
