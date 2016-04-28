@@ -78,7 +78,7 @@
           <!-- <i class="fa fa-file-text"></i> -->
           <span ng-hide="editTitle">{{note.title}}</span>
           <input type="text" ng-model="note.title" ng-show="editTitle">
-          <i class="fa fa-check " ng-click="editTitle = false" ng-show="editTitle" ></i>
+          <i class="fa fa-check " ng-click="editTitle = false; notes.updateNoteTitle(note._id, note.title)" ng-show="editTitle" ></i>
           <i class="fa fa-pencil edit" ng-click="editTitle = true" ng-show="!editTitle" ></i>
 
         </h2>

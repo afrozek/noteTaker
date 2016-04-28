@@ -20,6 +20,7 @@
 		vm.saveNote = saveNote;
 		vm.deleteNote = deleteNote;
 		vm.updateNoteContent = updateNoteContent;
+		vm.updateNoteTitle = updateNoteTitle;
 		vm.newNote = newNote;
 
 		vm.activate = activate;
@@ -43,6 +44,7 @@
 
 		function getNotesList() {
 			notesService.getNotesList().then(function(data){
+
 				vm.allNotes = data.data.notes;
 				//console.log(vm.allNotes);
 			})
@@ -131,6 +133,19 @@
 
 	    	notesService.updateNoteContent(noteId, noteContent).then(function(data){
 	    		console.log(data);
+	    		if(data.data.nModified == 1){
+	    			toastr.success("Note Saved!")
+	    		}
+	    	})
+	    }
+
+	    function updateNoteTitle(noteId, noteTitle) {
+
+	    	notesService.updateNoteTitle(noteId, noteTitle).then(function(data){
+	    		console.log(data);
+	    		if(data.data.nModified == 1){
+	    			getNotesList();
+	    		}
 	    	})
 	    }
 
@@ -139,7 +154,7 @@
 	    	notesService.deleteNote(noteId).then(function(data){
 	    		if(data.data.nModified == 1){
 	    			closeTab(index)
-	    			toastr.success("Note Deleted")
+	    			toastr.success("Note Deleted!")
 	    			getNotesList();
 	    		}
 	    		

@@ -17,6 +17,7 @@
             saveAllNotes: saveAllNotes,
             addNewNote: addNewNote,
             updateNoteContent: updateNoteContent,
+            updateNoteTitle: updateNoteTitle,
             deleteNote: deleteNote,
             // updateNoteTitle: updateNoteTitle,
             // updateNoteContent: updateNote
@@ -43,15 +44,21 @@
         function addNewNote () {
 
             // create new note object
-            var newNote = {title:"froost",content:"some content","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
+            var newNote = {title:"untitled",content:"sample content","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
             
-           return $http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote})
+            return $http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote})
         }
 
-         function updateNoteContent(noteId, noteContent) {
+        function updateNoteContent(noteId, noteContent) {
             return $http.post('http://localhost:3000/api/notes/updateNoteContent',{token: token, noteId: noteId, noteContent:noteContent});
 
         }
+
+        function updateNoteTitle(noteId, noteTitle) {
+            return $http.post('http://localhost:3000/api/notes/updateNoteTitle',{token: token, noteId: noteId, noteTitle:noteTitle});
+        }
+
+
 
         function deleteNote(noteId) {
             return $http.post('http://localhost:3000/api/notes/deleteNote',{token: token, noteId: noteId});

@@ -286,6 +286,27 @@ function notesApi (app, express) {
 	}); //end 
 
 
+// updates/edits content of a note by id
+	notesApi.post('/updateNoteTitle', function (req, res) {
+
+	//req.body.
+		var form = {};
+
+		// form.owner = owner";
+		form.ownerId = ownerId;
+		form.noteId = req.body.noteId;
+		form.noteTitle =  req.body.noteTitle;
+
+		Note.update({ownerId: form.ownerId, "notes._id": form.noteId}, 
+		    {$set: {"notes.$.title": form.noteTitle }},
+		    function(err, doc) {
+		    	res.send(doc);
+		    })
+
+				
+	}); //end 
+
+
 
 // // get notes by id
 // 	notesApi.post('/getNotes', function (req, res) {
