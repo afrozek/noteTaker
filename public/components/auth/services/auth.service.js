@@ -70,16 +70,16 @@
 
 
     	function setToken (token) {
-            $window.localStorage.setItem('userToken',token);
+            $window.sessionStorage.setItem('userToken',token);
 	    }
 
 	    function getToken () {
-            var token = $window.localStorage.getItem('userToken');
+            var token = $window.sessionStorage.getItem('userToken');
             return token;
 	    }
 
 	    function clearToken () {
-            $window.localStorage.removeItem('userToken');
+            $window.sessionStorage.removeItem('userToken');
             console.log('rabbits')
 	    }
 

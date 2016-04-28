@@ -28,7 +28,7 @@
     	////////////
 
         function getToken() {
-            return $window.localStorage.getItem('userToken');
+            return $window.sessionStorage.getItem('userToken');
         }
       
         // gets notes list, excludes the actual note content

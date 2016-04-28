@@ -105,7 +105,7 @@
 
 	    	
 	    	// get token
-	    	var token = $window.localStorage.getItem('userToken');
+	    	var token = $window.sessionStorage.getItem('userToken');
 
 	    	// send new note object
 	    	notesService.addNewNote().then(function(data){
