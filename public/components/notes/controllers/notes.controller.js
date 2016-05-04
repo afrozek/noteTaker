@@ -20,7 +20,7 @@
 		}
 		vm.getNotesList();
 		vm.activeNotes = [];
-		//vm.getSingleNote = getSingleNote;
+		vm.getSingleNote = getSingleNote;
 
 
 		vm.saveNote = saveNote;
@@ -52,12 +52,12 @@
 			
 		}
 
-		// function getSingleNote(noteId) {
-		// 	 notesService.getSingleNote(noteId).then(function(){
-		// 	 	return data.data;
-		// 	 })
+		function getSingleNote(noteId) {
+			 notesService.getSingleNote(noteId).then(function(){
+			 	return data.data;
+			 })
 
-		// }
+		}
 
 
 	    function activate(noteId) {

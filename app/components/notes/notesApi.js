@@ -97,7 +97,7 @@ function notesApi (app, express) {
 						  title: "My First Note",
 						  content: "your first sample note",
 						  sharedWith:[
-						  				{user: "auk2@njti.edu", canEdit: false}
+						  				{user: "auk2@njit.edu", canEdit: false}
 						  			 ]
 						}]
 
@@ -138,15 +138,15 @@ function notesApi (app, express) {
 
 
 		//form.ownerId = "";
-		// form.note =  {
-		// 				  "title": "spongebob notes",
-		// 				  "content": "what lives in a spongebob under the sea",
-		// 				  "sharedWith":[
-		// 				  				{"user": "auk2@njti.edu", "canEdit": false}
-		// 				  			 ]
-		// 				}
+		form.note =  {
+						  "title": "untitled",
+						  "content": "what lives in a spongebob under the sea",
+						  "sharedWith":[
+						  				{"user": "auk2@njti.edu", "canEdit": false}
+						  			 ]
+						}
 
-		form.note = req.body.note;
+		//form.note = req.body.note;
 
 	 	Note.findOneAndUpdate(
 		    form.ownerId,
@@ -175,7 +175,7 @@ function notesApi (app, express) {
 
 		//form.ownerId = "";
 		form.note =  {
-						  "title": "spongebob notes",
+						  "title": "dogs",
 						  "content": "what lives in a spongebob under the sea",
 						  "sharedWith":[
 						  				{"user": "auk2@njit.edu", "canEdit": false}

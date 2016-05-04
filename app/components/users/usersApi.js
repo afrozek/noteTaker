@@ -1,6 +1,8 @@
 module.exports = usersApi;
 
 var User = require('./usersModel.js');
+var Note = require('../notes/notesModel.js');
+var ObjectId = require('mongodb').ObjectID;
 var jwt = require('jwt-simple');
 var bcrypt = require('bcrypt-nodejs');
 
@@ -100,7 +102,34 @@ function usersApi (app, express) {
 		
 		newUser.save(function(err){
 			if(err) return res.send("failed: " + err)
-			createSendToken(newUser, res);
+			else{
+
+				form.notes =    [{
+						  title: "My First Note",
+						  content: "Your first sample note",
+						  sharedWith:[
+						  				{user: "auk2@njit.edu", canEdit: false}
+						  			 ]
+						}]
+
+				var initNote = new Note({
+					ownerId: newUser.id,
+					owner: form.email,
+					notes: form.notes
+				})
+
+				initNote.save(function(err){
+					if(err) return res.json({"success": false , data: err})
+					//res.json({"success": true , data: initNote})
+					createSendToken(newUser, res);
+				})
+
+
+
+
+				
+			}
+			
 		})
 
 	}); //end post addUser

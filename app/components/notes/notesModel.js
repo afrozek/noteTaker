@@ -9,10 +9,10 @@ var User = require('../users/usersModel.js');
 var NoteSchema = new mongoose.Schema(
 {
 	ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	owner: { type: String, required: true, unique: true },
+	owner: { type: String, required: true, unique: false },
 	notes:[
 			{
-			  title: { type: String, required: true, unique: true },
+			  title: { type: String, required: true, unique: false },
 			  content: String,
 			  sharedWith:[
 			  				{user: String, canEdit: Boolean}
