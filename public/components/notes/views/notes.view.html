@@ -118,10 +118,11 @@
           </ul>
 
           <ul class="tags">
-            <li>
-            javascript 
-            <i class="fa fa-close" ng-click="notes.closeTab($index)"></i></li>
-            <li>angular</li>
+            <li ng-repeat="tag in note.tags track by $index">
+            {{tag}} 
+            <i class="fa fa-close" ng-click="notes.deleteTag($index)"></i>
+            </li>
+           
           </ul>
 
       </div>

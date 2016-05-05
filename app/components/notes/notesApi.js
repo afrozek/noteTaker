@@ -102,6 +102,7 @@ function notesApi (app, express) {
 		form.notes =    [{
 						  title: "My First Note",
 						  content: "your first sample note",
+						  "tags" : [] ,
 						  sharedWith:[
 						  				{user: "auk2@njit.edu", canEdit: false}
 						  			 ]
@@ -149,7 +150,7 @@ function notesApi (app, express) {
 		form.note =  {
 						  "title": "untitled",
 						  "content": "new note",
-						  "tags" : [],
+						  "tags" : ['test tag', 'testTag2'],
 						  "sharedWith":[
 						  				{"user": "auk2@njit.edu", "canEdit": false}
 						  			 ]
@@ -316,6 +317,26 @@ function notesApi (app, express) {
 				
 	}); //end 
 
+// updates/edits content of a note by id
+	notesApi.post('/updateNoteTags', function (req, res) {
+
+	//req.body.
+		var form = {};
+
+		// form.owner = owner";
+		form.ownerId = request.ownerId;
+		form.noteId = req.body.noteId;
+		form.tags = req.body.tags;
+		console.log(form.tags)
+
+		Note.update({ownerId: form.ownerId, "notes._id": form.noteId}, 
+		    {$set: {"notes.$.tags": form.tags }},
+		    function(err, doc) {
+		    	res.send(doc);
+		    })
+
+				
+	}); //end 
 
 
 // // get notes by id

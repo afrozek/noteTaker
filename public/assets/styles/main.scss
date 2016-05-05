@@ -550,10 +550,11 @@ ul.tags li{
 	background: white;
 	color: $primaryColor;
 	padding: 0px 10px;
-	border-radius: 4px;
+	border-radius: 2px;
+	margin: 0px 2px;
 }
 
-ul.tags li .fa-close{
+ul.tags li .fa-close:hover{
 	color: red;
 }
 
