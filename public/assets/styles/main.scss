@@ -536,7 +536,26 @@ ul.toolTip li span{
     left: -35%;
 }
 
+ul.tags{
+	list-style: none;
+	position: relative;
+	display: block;
+	float: right;
+	width: 100%;
+	padding: 0px 5px;
+}
 
+ul.tags li{
+	display: inline-block;
+	background: white;
+	color: $primaryColor;
+	padding: 0px 10px;
+	border-radius: 4px;
+}
+
+ul.tags li .fa-close{
+	color: red;
+}
 
 
 

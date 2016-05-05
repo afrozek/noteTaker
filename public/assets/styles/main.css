@@ -391,3 +391,21 @@ ul.toolTip li span {
   opacity: 0;
   transition: .3s;
   left: -35%; }
+
+ul.tags {
+  list-style: none;
+  position: relative;
+  display: block;
+  float: right;
+  width: 100%;
+  padding: 0px 5px; }
+
+ul.tags li {
+  display: inline-block;
+  background: white;
+  color: #1C7FDF;
+  padding: 0px 10px;
+  border-radius: 4px; }
+
+ul.tags li .fa-close {
+  color: red; }

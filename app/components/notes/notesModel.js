@@ -12,8 +12,10 @@ var NoteSchema = new mongoose.Schema(
 	owner: { type: String, required: true, unique: false },
 	notes:[
 			{
-			  title: { type: String, required: true, unique: false },
+			  id_: { type: mongoose.Schema.Types.ObjectId },
+			  title: { type: String },
 			  content: String,
+			  tags: [],
 			  sharedWith:[
 			  				{user: String, canEdit: Boolean}
 			  			 ]

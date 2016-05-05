@@ -5,19 +5,14 @@
 		.module('notes')
 		.controller('notesCtrl', notesCtrl)
 
-	notesCtrl.$inject = ['notesService','$scope','$http','toastr','$window']
+	notesCtrl.$inject = ['notesService','$scope','$http','toastr','$window','$rootScope']
 
-	function notesCtrl(notesService,$scope, $http, toastr, $window) {
+	function notesCtrl(notesService,$scope, $http, toastr, $window,$rootScope) {
 		var vm = this;
 		console.log("notes ballsout");
 
-		vm.getNotesList = function(){
-			notesService.getNotesList().then(function(data){
-				console.log(data);
-				vm.allNotes = data.data.notes;
-				console.log(vm.allNotes);
-			})
-		}
+		vm.getNotesList = getNotesList;
+
 		vm.getNotesList();
 		vm.activeNotes = [];
 		vm.getSingleNote = getSingleNote;
@@ -49,7 +44,21 @@
 		
 
 		function getNotesList() {
-			
+				vm.allNotes = [];
+				console.log(vm.allNotes)
+				notesService.getNotesList().then(function(data){
+					vm.allNotes = [];
+					
+					setTimeout(function(){
+						$rootScope.$apply(function(){
+							console.log("updating")
+							vm.allNotes = data.data.notes;
+							console.log(vm.allNotes);
+						})	
+					}, 1000)
+					
+					console.log(vm.allNotes);
+				})
 		}
 
 		function getSingleNote(noteId) {
@@ -113,9 +122,10 @@
 	    	notesService.addNewNote().then(function(data){
 	    		console.log(data);
 
-	    		notesService.getNotesList().then(function(data){
+	    		notesService.getNotesList().then(function(data2){
 	    			// push new note to active notes
-	    			vm.allNotes = data.data.notes;
+	    			console.log(data2)
+	    			vm.allNotes = data2.data.notes;
 		    		var newNoteIndex = vm.allNotes.length-1;
 		    		activate(vm.allNotes[newNoteIndex]);
 		    		//scroll to the new note

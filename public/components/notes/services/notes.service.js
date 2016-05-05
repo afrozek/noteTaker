@@ -44,11 +44,8 @@
 
         function addNewNote () {
             var token = authService.getToken();
-
-            // create new note object
-            var newNote = {title:"untitled",content:"sample content","sharedWith":[{"user": "auk2@njit.edu", "canEdit": false}]};
             
-            return $http.post('http://localhost:3000/api/notes/addNote',{token: token, note: newNote})
+            return $http.post('http://localhost:3000/api/notes/addNote',{token: token})
         }
 
         function updateNoteContent(noteId, noteContent) {
