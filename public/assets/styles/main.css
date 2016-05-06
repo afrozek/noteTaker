@@ -105,6 +105,10 @@ body {
 .fa-8x {
   font-size: 8em; }
 
+/*colors*/
+.green {
+  color: green; }
+
 /*bootstrap override*/
 .hasNav {
   padding-top: 50px; }
@@ -398,7 +402,14 @@ ul.tags {
   display: block;
   float: right;
   width: 100%;
-  padding: 0px 5px; }
+  padding: 0px 5px;
+  height: 0px;
+  overflow: hidden;
+  transition: .3s; }
+
+.showTags {
+  transition: .3s;
+  height: 20px !important; }
 
 ul.tags li {
   display: inline-block;
@@ -408,5 +419,25 @@ ul.tags li {
   border-radius: 2px;
   margin: 0px 2px; }
 
+ul.tags li input {
+  height: 20px;
+  border: 0;
+  max-width: 100px;
+  text-align: center; }
+
+ul.tags li input:focus {
+  outline: none; }
+
+/*ul.tags li .fa-close{
+	color: red;
+}*/
 ul.tags li .fa-close:hover {
   color: red; }
+
+ul.tags li .fa-plus {
+  position: relative;
+  top: 1px;
+  color: gray; }
+
+ul.tags li .fa-plus:hover {
+  color: green; }

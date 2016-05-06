@@ -17,6 +17,7 @@
             addNewNote: addNewNote,
             updateNoteContent: updateNoteContent,
             updateNoteTitle: updateNoteTitle,
+            updateNoteTags: updateNoteTags,
             deleteNote: deleteNote,
             // updateNoteTitle: updateNoteTitle,
             // updateNoteContent: updateNote
@@ -70,6 +71,11 @@
         function saveAllNotes(notes) {
             var token = authService.getToken();
             return $http.post('http://localhost:3000/api/notes/updateNotes',{email:"moiz@gmail.com",notes: notes})
+        }
+
+        function updateNoteTags(noteId, noteTagsArray) {
+            var token = authService.getToken();
+           return $http.post('http://localhost:3000/api/notes/updateNoteTags',{token: token, noteId: noteId, tags: noteTagsArray })
         }
 
 

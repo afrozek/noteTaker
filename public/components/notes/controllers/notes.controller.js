@@ -23,12 +23,15 @@
 		vm.updateNoteContent = updateNoteContent;
 		vm.updateNoteTitle = updateNoteTitle;
 		vm.newNote = newNote;
+		vm.addTag = addTag;
+		vm.deleteTag = deleteTag;
 
 		vm.activate = activate;
 		vm.closeTab = closeTab;
 		
 		vm.showList = true;
 		vm.gridMode = true;
+		vm.toggleTags = false;
 
   
 	  	$scope.tinymceOptions = {
@@ -174,6 +177,44 @@
 	    	
 	    }
 
+
+	    
+
+	    function addTag(noteId, noteTagsArray){
+	    	if(vm.newTagName == "" || vm.newTagName == undefined || vm.newTagName == null){
+	    		toastr.error("Please enter a tag name")
+	    	}
+	    	else{
+		    	noteTagsArray.push(vm.newTagName)
+		    	
+		    	notesService.updateNoteTags(noteId, noteTagsArray).then(function(res){
+		    		// console.log(res.data.nModified);
+		    		if(res.data.nModified == 1){
+		    			toastr.success("Added " + vm.newTagName + " as a tag!")
+		    			vm.newTagName = "";
+		    		}
+		    		else{
+		    			toastr.error("Whoops!, Something went wrong, tags not updated");
+		    		}
+		    	})
+	    	}
+	    }
+
+	    function deleteTag(noteId, noteTagsArray, index){
+	    	noteTagsArray.splice(index, 1);
+	    	
+	    	notesService.updateNoteTags(noteId, noteTagsArray).then(function(res){
+	    		// console.log(res.data.nModified);
+	    		if(res.data.nModified == 1){
+	    			toastr.success("Removed Tag!")
+	    		}
+	    		else{
+	    			toastr.error("Whoops!, Something went wrong, cannot remove tag");
+	    		}
+	    	})
+	    }
+
+	    
 	   
 		function saveNote() {
 

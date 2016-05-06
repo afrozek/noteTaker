@@ -95,8 +95,8 @@
               <i class="fa fa-save" ></i>
               <span >save</span>
             </li>
-            <li>
-              <i class="fa fa-tags"></i>
+            <li ng-click="notes.toggleTags = !notes.toggleTags">
+              <i class="fa fa-tags" ></i>
               <span>tags</span>
             </li>
             <li ng-click="notes.gridMode = !notes.gridMode">
@@ -107,7 +107,7 @@
               <i class="fa fa-expand"></i>
               <span>full-screen</span>
             </li>
-            <li ng-click="notes.deleteNote(note._id,$index)">
+            <li ng-click="notes.deleteNote(note._id, $index)">
               <i class="fa fa-trash"></i>
               <span>delete</span>
             </li>
@@ -117,10 +117,14 @@
             </li>
           </ul>
 
-          <ul class="tags">
+          <ul class="tags" ng-class="{'showTags': notes.toggleTags == true }">
+            <li>
+              <input type="text" placeholder="new tag name" ng-model="notes.newTagName">
+              <i class="fa fa-plus " ng-click="notes.addTag(note._id, note.tags)"></i>
+            </li>
             <li ng-repeat="tag in note.tags track by $index">
             {{tag}} 
-            <i class="fa fa-close" ng-click="notes.deleteTag($index)"></i>
+            <i class="fa fa-close" ng-click="notes.deleteTag(note._id, note.tags, $index)"></i>
             </li>
            
           </ul>
