@@ -1,10 +1,10 @@
 {
-  "name": "taskboard",
+  "name": "notecorner",
   "version": "1.0.0",
-  "description": "a simple task manager",
+  "description": "document note taker",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
