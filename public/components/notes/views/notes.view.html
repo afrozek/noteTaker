@@ -50,8 +50,8 @@
       <ul>
         <li ng-repeat="note in notes.allNotes | filter:searchNotes" ng-click="notes.activate(note._id)">
           <h3>{{note.title}}</h3>
-          <p>created: Yesterday at 12pm</p>
-          <p>last opened: Today at 10am</p>
+          <p>created: {{note.created}}</p>
+          <!-- <p>last opened: Today at 10am</p> -->
         </li>
        
 

@@ -16,6 +16,7 @@ var NoteSchema = new mongoose.Schema(
 			  title: { type: String },
 			  content: String,
 			  tags: [],
+			  created: { type: String},
 			  sharedWith:[
 			  				{user: String, canEdit: Boolean}
 			  			 ]
@@ -27,28 +28,21 @@ var NoteSchema = new mongoose.Schema(
 
 var Note = mongoose.model('Note', NoteSchema);
 
-// NoteSchema.methods.comparePasswords = function(password, callback){
-// 	bcrypt.compare(password, this.password, callback);
-// }
 
 
-///
+
+
 // NoteSchema.pre('save', function(next){
 // 	var note = this;
 
-// 	if(!note.isModified('password')) return next();
+// 	var date = new Date(note.created);  // dateStr you get from mongodb
 
-// 	bcrypt.genSalt(10, function(err,salt){
-// 		if(err) return next(err);
+// 	var d = date.getDate();
+// 	var m = date.getMonth()+1;
 
-// 		bcrypt.hash(note.password, salt, null, function(err, hash){
-// 			if(err) return next(err);
-
-// 			note.password = hash;
+// 	note.created = d + "" + m;
 // 			next();
 // 		})
-// 	})
-// })
 
 
 

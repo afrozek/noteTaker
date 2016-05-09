@@ -10,7 +10,7 @@
 	var morgan = require('morgan'); // logs all requests to console
 	var mongoose = require('mongoose'); //ORM 
 	var path = require('path');
-	var port = 3000;
+	//var port = 3000;
 //CONFIG IMPORT
 	//var config = require('./config');
 
@@ -37,7 +37,7 @@
 
 // DB CONNECT
 	//mongoose.connect(config.database);
-	mongoose.connect("mongodb://localhost:27017/notekeeper");
+	// mongoose.connect("mongodb://localhost:27017/notekeeper");
 
 //STATIC FILE LOCATIONS
 app.use(express.static(__dirname + '/public'));
@@ -65,9 +65,18 @@ app.get('/',function(req,res){
 //SERVER START
 //===============================
 
-//app.listen(config.port);
-app.listen(port)
-console.log('Something bout to go down on port: ' + port);
+
+// app.listen(port)
+// console.log('Something bout to go down on port: ' + port);
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+ 
+app.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
+});
+
+
 
 
 

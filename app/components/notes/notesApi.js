@@ -64,7 +64,9 @@ function notesApi (app, express) {
 	notesApi.post('/getAllNotesMeta', function (req, res) {
 
 
-		Note.find({ownerId: request.ownerId},'notes.title notes._id notes.sharedWith',function(err, note){
+		Note.find({ownerId: request.ownerId},'notes.title notes._id notes.sharedWith notes.created',function(err, note){
+			
+			//console.log(note[0].notes[0])
 			return res.send(note[0]);
 		})
 
@@ -98,11 +100,19 @@ function notesApi (app, express) {
 		//form.notes = req.body.notes;
 		form.ownerId = request.ownerId;
 
+		var date = new Date();  // dateStr you get from mongodb
+			var d = date.getDate();
+			var m = date.getMonth()+1;
+			var y = date.getFullYear();
+			
+			form.created = m+"/"+d+"/"+y;
+
 		//form.owner = owner";
 		form.notes =    [{
 						  title: "My First Note",
 						  content: "your first sample note",
 						  "tags" : [] ,
+						  created: form.created,
 						  sharedWith:[
 						  				{user: "auk2@njit.edu", canEdit: false}
 						  			 ]
@@ -145,16 +155,25 @@ function notesApi (app, express) {
 		form.ownerId = request.ownerId;
 		console.log("/addNote by user: " + form.ownerId )
 
+			var date = new Date();  // dateStr you get from mongodb
+			var d = date.getDate();
+			var m = date.getMonth()+1;
+			var y = date.getFullYear();
+			
+			form.created = m+"/"+d+"/"+y;
+
 
 		//form.ownerId = "";
 		form.note =  {
 						  "title": "untitled",
 						  "content": "new note",
 						  "tags" : ['sample tag'],
+						  "created": form.created,
 						  "sharedWith":[
 						  				{"user": "auk2@njit.edu", "canEdit": false}
 						  			 ]
 						}
+		console.log(form.note)
 
 		//form.note = req.body.note;
 
